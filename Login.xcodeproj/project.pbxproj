@@ -19,7 +19,6 @@
 		3469E5D3238AF52D00A5D216 /* AuthRemoteAPIFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E5D2238AF52D00A5D216 /* AuthRemoteAPIFake.swift */; };
 		3469E5D5238AF6A900A5D216 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E5D4238AF6A900A5D216 /* AppError.swift */; };
 		34BE6CD22389808D0034B694 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE6CD12389808D0034B694 /* AppDelegate.swift */; };
-		34BE6CD42389808D0034B694 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE6CD32389808D0034B694 /* SceneDelegate.swift */; };
 		34BE6CDB2389808E0034B694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BE6CDA2389808E0034B694 /* Assets.xcassets */; };
 		34BE6CDE2389808E0034B694 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34BE6CDC2389808E0034B694 /* LaunchScreen.storyboard */; };
 		34BE6CE62389834F0034B694 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE6CE52389834F0034B694 /* BaseViewController.swift */; };
@@ -59,7 +58,6 @@
 		3469E5D4238AF6A900A5D216 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		34BE6CCE2389808D0034B694 /* Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Login.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BE6CD12389808D0034B694 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		34BE6CD32389808D0034B694 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		34BE6CDA2389808E0034B694 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34BE6CDD2389808E0034B694 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		34BE6CDF2389808E0034B694 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -259,7 +257,6 @@
 				3469E5DE238B3B2600A5D216 /* App */,
 				3469E5D8238B397700A5D216 /* Common */,
 				3469E5DA238B3A0500A5D216 /* DataLayer */,
-				34BE6CD32389808D0034B694 /* SceneDelegate.swift */,
 				3469E5DB238B3A0E00A5D216 /* UILayer */,
 			);
 			path = Login;
@@ -425,7 +422,6 @@
 				3469E5C1238AE75500A5D216 /* UserSessionPropertyListEncoder.swift in Sources */,
 				3469E5C5238AE93B00A5D216 /* KeychainUserSessionDataStore.swift in Sources */,
 				3469E5C7238AED0200A5D216 /* KeychainItem.swift in Sources */,
-				34BE6CD42389808D0034B694 /* SceneDelegate.swift in Sources */,
 				3469E5C9238AEEFE00A5D216 /* KeychainItemWithData.swift in Sources */,
 				34BE6CE8238986720034B694 /* MainViewController.swift in Sources */,
 				3469E5CD238AF0B700A5D216 /* Keychain.swift in Sources */,
