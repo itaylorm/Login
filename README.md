@@ -6,4 +6,6 @@ Project is working through a version the MVVM Project working only on implementi
 Right now the project only displays a Red screen when run
 
 To install you will need to have Pods installed
-Run Pod install to get the dependencies
+
+# Install Instructions
+Run Pod install to install dependencies
