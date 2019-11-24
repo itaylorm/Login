@@ -21,6 +21,7 @@ class MainViewModel: SignedInResponder, NotSignedInResponder {
   // MARK: Methods
   
   /// Indicates user is not signed in
+  /// Starts the on boarding process for the user to sign up
   func notSignedIn() {
     viewSubject.onNext(.onboarding)
   }

@@ -26,7 +26,6 @@ class LaunchViewController: BaseViewController {
   let viewModel: LaunchViewModel
   let disposeBag = DisposeBag()
   
-  
   /// Configures with passed view model
   /// - Parameter launchViewModelFactory: Provides the associated view model
   init(launchViewModelFactory: LaunchViewModelFactory) {

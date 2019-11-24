@@ -33,11 +33,12 @@ class DependencyContainer {
   /// Assembles and returns reference to main controller
   func makeMainViewController() -> MainViewController {
     
-    let launchViewController = LaunchViewController(launchViewModelFactory: self)
+    let launchViewController = makeLaunchViewController()
     return MainViewController(mainViewModel: mainViewModel, launchViewController: launchViewController)
     
   }
   
+  /// Configures the launch controller
   func makeLaunchViewController() -> LaunchViewController {
       return LaunchViewController(launchViewModelFactory: self)
   }

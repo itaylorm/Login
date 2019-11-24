@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3469E5C1238AE75500A5D216 /* PropertyListEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E5C0238AE75500A5D216 /* PropertyListEncoder.swift */; };
+		3469E5C1238AE75500A5D216 /* UserSessionPropertyListEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E5C0238AE75500A5D216 /* UserSessionPropertyListEncoder.swift */; };
 		3469E5C3238AE7A900A5D216 /* UserSessionCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E5C2238AE7A900A5D216 /* UserSessionCoding.swift */; };
 		3469E5C5238AE93B00A5D216 /* KeychainUserSessionDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E5C4238AE93B00A5D216 /* KeychainUserSessionDataStore.swift */; };
 		3469E5C7238AED0200A5D216 /* KeychainItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E5C6238AED0200A5D216 /* KeychainItem.swift */; };
@@ -46,7 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3469E5C0238AE75500A5D216 /* PropertyListEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListEncoder.swift; sourceTree = "<group>"; };
+		3469E5C0238AE75500A5D216 /* UserSessionPropertyListEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionPropertyListEncoder.swift; sourceTree = "<group>"; };
 		3469E5C2238AE7A900A5D216 /* UserSessionCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionCoding.swift; sourceTree = "<group>"; };
 		3469E5C4238AE93B00A5D216 /* KeychainUserSessionDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainUserSessionDataStore.swift; sourceTree = "<group>"; };
 		3469E5C6238AED0200A5D216 /* KeychainItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItem.swift; sourceTree = "<group>"; };
@@ -100,6 +100,137 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3469E5D6238B388700A5D216 /* Keychain */ = {
+			isa = PBXGroup;
+			children = (
+				3469E5CC238AF0B700A5D216 /* Keychain.swift */,
+				3469E5C6238AED0200A5D216 /* KeychainItem.swift */,
+				3469E5CA238AEF7F00A5D216 /* KeychainItemQuery.swift */,
+				3469E5C8238AEEFE00A5D216 /* KeychainItemWithData.swift */,
+				3469E5C4238AE93B00A5D216 /* KeychainUserSessionDataStore.swift */,
+			);
+			path = Keychain;
+			sourceTree = "<group>";
+		};
+		3469E5D7238B38AB00A5D216 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				3469E5D4238AF6A900A5D216 /* AppError.swift */,
+				34BE6D052389B0A60034B694 /* ErrorMessage.swift */,
+				34BE6D072389B1640034B694 /* ErrorPresentation.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		3469E5D8238B397700A5D216 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3469E5D7238B38AB00A5D216 /* Error */,
+				3469E5D9238B398000A5D216 /* UIKit */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		3469E5D9238B398000A5D216 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				34BE6D092389B6F50034B694 /* BaseView.swift */,
+				34BE6CE52389834F0034B694 /* BaseViewController.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		3469E5DA238B3A0500A5D216 /* DataLayer */ = {
+			isa = PBXGroup;
+			children = (
+				3469E5DD238B3A8C00A5D216 /* Repositories */,
+				3469E5DC238B3A1E00A5D216 /* Models */,
+			);
+			path = DataLayer;
+			sourceTree = "<group>";
+		};
+		3469E5DB238B3A0E00A5D216 /* UILayer */ = {
+			isa = PBXGroup;
+			children = (
+				34BE6CE9238987900034B694 /* MainView.swift */,
+				34BE6CEB2389892C0034B694 /* MainViewModel.swift */,
+				34BE6CFD2389AC000034B694 /* LaunchViewModel.swift */,
+				34BE6CF7238995BF0034B694 /* NotSIgnedInResponder.swift */,
+				34BE6CED23898BA90034B694 /* SignedInResponder.swift */,
+			);
+			path = UILayer;
+			sourceTree = "<group>";
+		};
+		3469E5DC238B3A1E00A5D216 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				34BE6D012389AE420034B694 /* NewAccount.swift */,
+				34BE6D032389AEE90034B694 /* Secret.swift */,
+				34BE6CF123898C960034B694 /* UserProfile.swift */,
+				34BE6CEF23898C210034B694 /* UserSession.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3469E5DD238B3A8C00A5D216 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				3469E5E2238B3D4900A5D216 /* Coding */,
+				3469E5E1238B3C5D00A5D216 /* Remote */,
+				3469E5DF238B3B9900A5D216 /* Persistence */,
+				3469E5CE238AF28F00A5D216 /* AppUserSessionRepository.swift */,
+				34BE6CFF2389ACD50034B694 /* UserSessionRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		3469E5DE238B3B2600A5D216 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				34BE6CF92389A0B80034B694 /* DependencyContainer.swift */,
+				34BE6D0B2389B7880034B694 /* LaunchRootView.swift */,
+				34BE6CFB2389A29C0034B694 /* LaunchViewController.swift */,
+				34BE6CE7238986720034B694 /* MainViewController.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		3469E5DF238B3B9900A5D216 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				3469E5D6238B388700A5D216 /* Keychain */,
+				34BE6CF52389916A0034B694 /* UserSessionDataStore.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		3469E5E0238B3C4700A5D216 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				3469E5D0238AF3CA00A5D216 /* AuthRemoteAPI.swift */,
+				3469E5D2238AF52D00A5D216 /* AuthRemoteAPIFake.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		3469E5E1238B3C5D00A5D216 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+				34BE6CF323898FFA0034B694 /* RemoteUserSession.swift */,
+				3469E5E0238B3C4700A5D216 /* Auth */,
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		3469E5E2238B3D4900A5D216 /* Coding */ = {
+			isa = PBXGroup;
+			children = (
+				3469E5C0238AE75500A5D216 /* UserSessionPropertyListEncoder.swift */,
+				3469E5C2238AE7A900A5D216 /* UserSessionCoding.swift */,
+			);
+			path = Coding;
+			sourceTree = "<group>";
+		};
 		34BE6CC52389808C0034B694 = {
 			isa = PBXGroup;
 			children = (
@@ -121,42 +252,15 @@
 		34BE6CD02389808D0034B694 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				34BE6CD12389808D0034B694 /* AppDelegate.swift */,
-				34BE6CDA2389808E0034B694 /* Assets.xcassets */,
-				34BE6D092389B6F50034B694 /* BaseView.swift */,
-				34BE6CE52389834F0034B694 /* BaseViewController.swift */,
-				34BE6CF92389A0B80034B694 /* DependencyContainer.swift */,
-				34BE6D052389B0A60034B694 /* ErrorMessage.swift */,
-				34BE6D072389B1640034B694 /* ErrorPresentation.swift */,
 				34BE6CDF2389808E0034B694 /* Info.plist */,
-				34BE6D0B2389B7880034B694 /* LaunchRootView.swift */,
+				34BE6CDA2389808E0034B694 /* Assets.xcassets */,
+				34BE6CD12389808D0034B694 /* AppDelegate.swift */,
 				34BE6CDC2389808E0034B694 /* LaunchScreen.storyboard */,
-				34BE6CFB2389A29C0034B694 /* LaunchViewController.swift */,
-				34BE6CFD2389AC000034B694 /* LaunchViewModel.swift */,
-				34BE6CE9238987900034B694 /* MainView.swift */,
-				34BE6CE7238986720034B694 /* MainViewController.swift */,
-				34BE6CEB2389892C0034B694 /* MainViewModel.swift */,
-				34BE6D012389AE420034B694 /* NewAccount.swift */,
-				34BE6CF7238995BF0034B694 /* NotSIgnedInResponder.swift */,
-				3469E5C0238AE75500A5D216 /* PropertyListEncoder.swift */,
-				34BE6CF323898FFA0034B694 /* RemoteUserSession.swift */,
+				3469E5DE238B3B2600A5D216 /* App */,
+				3469E5D8238B397700A5D216 /* Common */,
+				3469E5DA238B3A0500A5D216 /* DataLayer */,
 				34BE6CD32389808D0034B694 /* SceneDelegate.swift */,
-				34BE6D032389AEE90034B694 /* Secret.swift */,
-				34BE6CED23898BA90034B694 /* SignedInResponder.swift */,
-				34BE6CF123898C960034B694 /* UserProfile.swift */,
-				34BE6CEF23898C210034B694 /* UserSession.swift */,
-				3469E5C2238AE7A900A5D216 /* UserSessionCoding.swift */,
-				34BE6CF52389916A0034B694 /* UserSessionDataStore.swift */,
-				34BE6CFF2389ACD50034B694 /* UserSessionRepository.swift */,
-				3469E5C4238AE93B00A5D216 /* KeychainUserSessionDataStore.swift */,
-				3469E5C6238AED0200A5D216 /* KeychainItem.swift */,
-				3469E5C8238AEEFE00A5D216 /* KeychainItemWithData.swift */,
-				3469E5CA238AEF7F00A5D216 /* KeychainItemQuery.swift */,
-				3469E5CC238AF0B700A5D216 /* Keychain.swift */,
-				3469E5CE238AF28F00A5D216 /* AppUserSessionRepository.swift */,
-				3469E5D0238AF3CA00A5D216 /* AuthRemoteAPI.swift */,
-				3469E5D2238AF52D00A5D216 /* AuthRemoteAPIFake.swift */,
-				3469E5D4238AF6A900A5D216 /* AppError.swift */,
+				3469E5DB238B3A0E00A5D216 /* UILayer */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -318,7 +422,7 @@
 				34BE6D022389AE420034B694 /* NewAccount.swift in Sources */,
 				3469E5CB238AEF7F00A5D216 /* KeychainItemQuery.swift in Sources */,
 				34BE6CF023898C210034B694 /* UserSession.swift in Sources */,
-				3469E5C1238AE75500A5D216 /* PropertyListEncoder.swift in Sources */,
+				3469E5C1238AE75500A5D216 /* UserSessionPropertyListEncoder.swift in Sources */,
 				3469E5C5238AE93B00A5D216 /* KeychainUserSessionDataStore.swift in Sources */,
 				3469E5C7238AED0200A5D216 /* KeychainItem.swift in Sources */,
 				34BE6CD42389808D0034B694 /* SceneDelegate.swift in Sources */,

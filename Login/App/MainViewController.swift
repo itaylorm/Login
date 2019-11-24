@@ -54,9 +54,9 @@ class MainViewController: BaseViewController {
     
   }
   
-  /// Provides means to recieve changes to the MainView and
-  /// information about the current state of the application
-  /// - Parameter observable: <#observable description#>
+  /// Provides means to recieve changes to the MainView enum
+  /// Change then triggers a different screen to display
+  /// - Parameter observable: Reference to MainView, change triggers different view display
   func subscribe(to observable: Observable<MainView>) {
     
     observable
@@ -68,6 +68,7 @@ class MainViewController: BaseViewController {
   }
   
   /// Displays the appropriate screen based upon current state of the application
+  /// State changes are detected by change to the value of MainView which is an enum
   /// - Parameter view: Reference to main view containing state of application
   func present(_ view: MainView) {
   
