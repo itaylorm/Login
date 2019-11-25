@@ -11,7 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-  let dependencyContainer = DependencyContainer()
+  let dependencyContainer = AppDependencyContainer()
   
   var window: UIWindow?
 

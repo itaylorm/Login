@@ -10,7 +10,7 @@ import Foundation
 
 /// Provides the ability to create the different parts of the app
 /// without creating concrete dependencies
-class DependencyContainer {
+class AppDependencyContainer {
   
   // MARK: Properties
   
@@ -34,7 +34,14 @@ class DependencyContainer {
   func makeMainViewController() -> MainViewController {
     
     let launchViewController = makeLaunchViewController()
-    return MainViewController(mainViewModel: mainViewModel, launchViewController: launchViewController)
+    
+    let onboardingViewControllerFactory = {
+      return self.makeOnboardingViewController()
+    }
+    
+    return MainViewController(mainViewModel: mainViewModel,
+                              launchViewController: launchViewController,
+                              onboardingViewControllerFactory: onboardingViewControllerFactory)
     
   }
   
@@ -43,10 +50,18 @@ class DependencyContainer {
       return LaunchViewController(launchViewModelFactory: self)
   }
   
+  /// Configures the on board controller along with dependencies
+  func makeOnboardingViewController() -> OnboardingViewController {
+    
+    let dependencyContainer = OnboardingDependencyContainer(appDependencyContainer: self)
+    return dependencyContainer.makeOnboardingViewController()
+    
+  }
+  
 }
 
 /// Implements the methods associated with creating launch view information
-extension DependencyContainer: LaunchViewModelFactory {
+extension AppDependencyContainer: LaunchViewModelFactory {
   
   /// Returns generated associated view model
   func makeLaunchViewModel() -> LaunchViewModel {

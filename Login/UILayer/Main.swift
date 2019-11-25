@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum MainView {
+enum Main {
   
   case launching
   case onboarding
@@ -16,9 +16,9 @@ enum MainView {
   
 }
 
-extension MainView: Equatable {
+extension Main: Equatable {
   
-  static func ==(lhs: MainView, rhs: MainView) -> Bool {
+  static func ==(lhs: Main, rhs: Main) -> Bool {
     
     switch(lhs, rhs) {
       case (.launching, .launching): return true

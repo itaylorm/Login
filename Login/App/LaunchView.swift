@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class LaunchRootView: BaseView {
+class LaunchView: BaseView {
   
   // MARK: Properties
   

@@ -19,9 +19,8 @@
                                 <rect key="frame" x="10" y="231.66666666666663" width="394" height="273"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iMaxwell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5A-0c-FsK">
-                                <rect key="frame" x="0.0" y="33" width="414" height="196"/>
+                                <rect key="frame" x="25.666666666666657" y="33" width="363" height="196"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="414" id="QRc-Q1-zcI"/>
                                     <constraint firstAttribute="height" constant="196" id="lXc-XG-cVf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="58"/>

@@ -16,9 +16,16 @@ class MainViewController: BaseViewController {
   
   let viewModel: MainViewModel
   
+  // Child Controllers
   let launchViewController: LaunchViewController
+  var onboardingViewController: OnboardingViewController?
+  //var signInViewController: SignInViewController?
   
   let disposeBag = DisposeBag()
+  
+  // Factories
+  let makeOnboardingViewController: () -> OnboardingViewController
+  //let makeSignedInViewController: (UserSession) -> SignedInViewController
   
   // MARK: Methods
   
@@ -27,11 +34,16 @@ class MainViewController: BaseViewController {
   /// - Parameters:
   ///   - mainViewModel: Contains the state of the application and drives which screen to display
   ///   - launchViewController: Initial display
-  init(mainViewModel: MainViewModel, launchViewController: LaunchViewController) {
+  ///   - onboardingViewController: Handles on boarding process
+  init(mainViewModel: MainViewModel,
+       launchViewController: LaunchViewController,
+       onboardingViewControllerFactory: @escaping () -> OnboardingViewController) {
   
     self.viewModel = mainViewModel
     
     self.launchViewController = launchViewController
+    self.makeOnboardingViewController = onboardingViewControllerFactory
+    //self.makeSignedInViewController = signedInViewControllerFactory
     
     super.init()
     
@@ -57,7 +69,7 @@ class MainViewController: BaseViewController {
   /// Provides means to recieve changes to the MainView enum
   /// Change then triggers a different screen to display
   /// - Parameter observable: Reference to MainView, change triggers different view display
-  func subscribe(to observable: Observable<MainView>) {
+  func subscribe(to observable: Observable<Main>) {
     
     observable
       .subscribe(onNext: { [weak self] view in
@@ -70,7 +82,7 @@ class MainViewController: BaseViewController {
   /// Displays the appropriate screen based upon current state of the application
   /// State changes are detected by change to the value of MainView which is an enum
   /// - Parameter view: Reference to main view containing state of application
-  func present(_ view: MainView) {
+  func present(_ view: Main) {
   
     switch view {
       case .launching: presentLaunching()
