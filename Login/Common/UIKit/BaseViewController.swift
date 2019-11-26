@@ -21,7 +21,9 @@ open class BaseViewController: UIViewController {
 
   @available(*, unavailable, message: "Cannot load this view controller from a nib")
   public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    
     super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+  
   }
 
   @available(*, unavailable, message: "Cannot load this view controller from a nib")

@@ -52,8 +52,10 @@ class OnboardingViewController: BaseNavigationController {
   
   /// This actually displays the view display
   public override func viewDidLoad() {
+    
     super.viewDidLoad()
     subscribe(to: viewModel.view)
+  
   }
 
   /// Provides a means to respond to changes to onboard state
@@ -155,8 +157,10 @@ extension OnboardingViewController: UINavigationControllerDelegate {
   func navigationController(_ navigationController: UINavigationController,
                                    willShow viewController: UIViewController,
                                    animated: Bool) {
+    
     guard let viewToBeShown = onboardingView(associatedWith: viewController) else { return }
     hideOrShowNavigationBarIfNeeded(for: viewToBeShown, animated: animated)
+  
   }
 
   /// Handles display changes that happened when shown to user

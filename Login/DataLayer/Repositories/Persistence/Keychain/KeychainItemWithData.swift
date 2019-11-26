@@ -22,10 +22,12 @@ class KeychainItemWithData: KeychainItem {
 
   /// Returns key value pairs
   override func asDictionary() -> CFDictionary {
+    
     let item: [String: AnyObject] = [itemClass: kSecClassGenericPassword,
                                      itemService: service,
                                      itemData: data]
     return item as CFDictionary
+  
   }
 
   /// Returns CF Dictionary of items

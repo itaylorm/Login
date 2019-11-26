@@ -38,7 +38,11 @@ class LaunchViewController: BaseViewController {
   
   /// Display associated view model's view
   public override func loadView() {
+    
+    super.viewDidLoad()
+    
     view = LaunchView(viewModel: viewModel)
+  
   }
   
   /// Handle displaying error message

@@ -30,12 +30,12 @@ class WelcomeViewModel {
   }
   
   /// Takes user to the sign up view
-  func showSignUpView() {
+  @objc func showSignUpView() {
     signUpNavigator.SignUp()
   }
   
   /// Takes user to the sign in view
-  func showSignInView() {
+  @objc func showSignInView() {
     signInNavigator.SignIn()
   }
   

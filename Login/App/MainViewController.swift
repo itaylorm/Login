@@ -52,6 +52,7 @@ class MainViewController: BaseViewController {
   /// Triggers when view is first loaded
   /// Configures appropriate associated view
   override func viewDidLoad() {
+    
     super.viewDidLoad()
     
     observeViewModel()
@@ -77,6 +78,7 @@ class MainViewController: BaseViewController {
         strongSelf.present(view)
       })
     .disposed(by: disposeBag)
+    
   }
   
   /// Displays the appropriate screen based upon current state of the application

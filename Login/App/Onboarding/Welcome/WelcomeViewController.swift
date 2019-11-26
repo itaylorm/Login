@@ -27,9 +27,14 @@ class WelcomeViewController: BaseViewController {
     
   }
   
+  /// Loads associated view
   public override func loadView() {
+    
+    super.loadView()
+    
     let viewModel = welcomeViewModelFactory.makeWelcomeViewModel()
     view = WelcomeView(viewModel: viewModel)
+  
   }
   
 }
