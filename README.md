@@ -2,8 +2,8 @@
 Demonstration of MVVM Pattern leveraging Dependency Injection
 
 This project is based upon the Ray Wenderlich book Advanced iOS App Architecture
-Project is working through a version the MVVM Project working only on implementing the Login logic
-Right now the project only displays a Red screen when run
+Project. I am working through a version the MVVM Project working only on implementing the Login logic
+Right now the project takes you to the welcome screen with sign up and sign in buttons
 
 To install you will need to have Pods installed
 
