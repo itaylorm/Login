@@ -8,7 +8,8 @@
 
 import Foundation
 
-/// Configures all the controllers and associated view models that
+/// Configures the dependencies for all the controllers and associated view models
+/// associated with the onboarding process
 /// handles the process of logging in or signing up a user
 class OnboardingDependencyContainer: WelcomeViewModelFactory, SignInViewModelFactory, SignUpViewModelFactory {
 
@@ -30,7 +31,6 @@ class OnboardingDependencyContainer: WelcomeViewModelFactory, SignInViewModelFac
     self.userSessionRepository = appDependencyContainer.userSessionRepository
     self.mainViewModel = appDependencyContainer.mainViewModel
     
-    
   }
   
   /// Provides a means to generate on boarding controller with dependencies
@@ -41,9 +41,9 @@ class OnboardingDependencyContainer: WelcomeViewModelFactory, SignInViewModelFac
     let signUpViewController = makeSignUpViewController()
     
     return OnboardingViewController(viewModel: onboardingViewModel,
-                                    welcomeViewController: welcomeViewController,
-                                    signInViewController: signInViewController,
-                                    signUpViewController: signUpViewController)
+        welcomeViewController: welcomeViewController,
+        signInViewController: signInViewController,
+        signUpViewController: signUpViewController)
   }
   
   /// Generates dependencies and return Welcome view controller
@@ -55,7 +55,8 @@ class OnboardingDependencyContainer: WelcomeViewModelFactory, SignInViewModelFac
   /// Used by the controller to generate view model
   func makeWelcomeViewModel() -> WelcomeViewModel {
     
-    return WelcomeViewModel(signInNavigator: onboardingViewModel, signUpNavigator: onboardingViewModel)
+    return WelcomeViewModel(signInNavigator: onboardingViewModel,
+                            signUpNavigator: onboardingViewModel)
   
   }
   
@@ -70,7 +71,8 @@ class OnboardingDependencyContainer: WelcomeViewModelFactory, SignInViewModelFac
   /// Used by the controller to generate view model
   func makeSignInViewModel() -> SignInViewModel {
     
-    return SignInViewModel(userSessionRepository: userSessionRepository, signedInResponder: mainViewModel)
+    return SignInViewModel(userSessionRepository: userSessionRepository,
+                           signedInResponder: mainViewModel)
     
   }
   
@@ -85,7 +87,8 @@ class OnboardingDependencyContainer: WelcomeViewModelFactory, SignInViewModelFac
   /// Used by the controller to generate view model
   func makeSignUpViewModel() -> SignUpViewModel {
     
-    return SignUpViewModel(userSessionRepository: userSessionRepository, signedInResponder: mainViewModel)
+    return SignUpViewModel(userSessionRepository: userSessionRepository,
+                           signedInResponder: mainViewModel)
     
   }
   

@@ -52,7 +52,7 @@ class LaunchViewModel {
       .catch { error in
         
         let errorMessage = ErrorMessage(id: UUID(), title: "Sign In Error",
-                                        message: "Sorry, we couldn't determine if you are already signed in. Please sign in or sign up.")
+          message: "Sorry, we couldn't determine if you are already signed in. Please sign in or sign up.")
         self.present(errorMessage: errorMessage)
     }
   }

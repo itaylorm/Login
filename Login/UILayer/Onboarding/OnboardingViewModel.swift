@@ -9,14 +9,14 @@
 import Foundation
 import RxSwift
 
-typealias OnboardingNavigationAction = NavigationAction<Onboarding>
+typealias OnboardingNavigationAction = NavigationAction<OnboardingState>
 
 /// Handles the different conditions of starting up onboarding process
 class OnboardingViewModel: SignUpNavigator, SignInNavigator {
   
   // MARK: Properties
   
-  var _view = BehaviorSubject<OnboardingNavigationAction>(value: .present(view: .welcome))
+  var _view = BehaviorSubject<OnboardingNavigationAction>(value: .present(state: .welcome))
   var view: Observable<OnboardingNavigationAction> { return _view }
   
   // MARK: Methods
@@ -26,12 +26,20 @@ class OnboardingViewModel: SignUpNavigator, SignInNavigator {
   
   /// Takes user to the sign in view
   func SignUp() {
-    _view.onNext(.present(view: .signup))
+    _view.onNext(.present(state: .signup))
   }
   
   /// Takes user to the sign in view
   func SignIn() {
-    _view.onNext(.present(view: .signin))
+    _view.onNext(.present(state: .signin))
+  }
+  
+  /// Triggers when view displayed to user
+  /// - Parameter onboarding: Represents the state of the on boarding process
+  public func uiPresented(onboarding: OnboardingState) {
+    
+    _view.onNext(.presented(state: onboarding))
+    
   }
   
 }

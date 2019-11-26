@@ -14,9 +14,9 @@ class MainViewModel: SignedInResponder, NotSignedInResponder {
   
   // MARK: Properties
   
-  var view: Observable<Main> { return viewSubject.asObservable() }
+  var view: Observable<MainState> { return viewSubject.asObservable() }
   
-  private let viewSubject = BehaviorSubject<Main>(value: .launching)
+  private let viewSubject = BehaviorSubject<MainState>(value: .launching)
 
   // MARK: Methods
   

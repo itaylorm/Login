@@ -11,6 +11,6 @@ import Foundation
 /// Provides a means to communicate the current state of navigating to a view
 enum NavigationAction<ViewModelType>: Equatable where ViewModelType: Equatable {
   
-  case present(view: ViewModelType)
-  case presented(view: ViewModelType)
+  case present(state: ViewModelType)
+  case presented(state: ViewModelType)
 }

@@ -8,7 +8,9 @@
 
 import Foundation
 
-enum Main {
+/// Provides a means to determine which part of the
+/// application cycle the app is in
+enum MainState {
   
   case launching
   case onboarding
@@ -16,9 +18,10 @@ enum Main {
   
 }
 
-extension Main: Equatable {
+/// Provides mean to compare enum values
+extension MainState: Equatable {
   
-  static func ==(lhs: Main, rhs: Main) -> Bool {
+  static func ==(lhs: MainState, rhs: MainState) -> Bool {
     
     switch(lhs, rhs) {
       case (.launching, .launching): return true

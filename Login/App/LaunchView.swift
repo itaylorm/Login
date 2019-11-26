@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+/// First screen that loads
 class LaunchView: BaseView {
   
   // MARK: Properties

@@ -10,7 +10,7 @@ import Foundation
 
 /// Different states of the on boarding process
 /// This is used to indicate which view to display to user
-enum Onboarding {
+enum OnboardingState {
   
   case welcome
   case signin

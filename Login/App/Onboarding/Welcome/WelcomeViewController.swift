@@ -27,6 +27,11 @@ class WelcomeViewController: BaseViewController {
     
   }
   
+  public override func loadView() {
+    let viewModel = welcomeViewModelFactory.makeWelcomeViewModel()
+    view = WelcomeView(viewModel: viewModel)
+  }
+  
 }
 
 /// Handles generating welcome view model

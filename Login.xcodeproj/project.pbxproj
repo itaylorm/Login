@@ -27,7 +27,7 @@
 		3469E5F6238B43FA00A5D216 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E5F5238B43FA00A5D216 /* SignUpView.swift */; };
 		3469E5F8238B440800A5D216 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E5F7238B440800A5D216 /* SignInView.swift */; };
 		3469E5FF238B4DA100A5D216 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E5FE238B4DA100A5D216 /* OnboardingViewModel.swift */; };
-		3469E601238B4DF900A5D216 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E600238B4DF900A5D216 /* Onboarding.swift */; };
+		3469E601238B4DF900A5D216 /* OnboardingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E600238B4DF900A5D216 /* OnboardingState.swift */; };
 		3469E603238B4ED200A5D216 /* SignUpNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E602238B4ED200A5D216 /* SignUpNavigator.swift */; };
 		3469E605238B4F3300A5D216 /* SignInNavigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E604238B4F3300A5D216 /* SignInNavigator.swift */; };
 		3469E607238B50B400A5D216 /* NavigationAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E606238B50B400A5D216 /* NavigationAction.swift */; };
@@ -35,12 +35,13 @@
 		3469E60B238B5E2B00A5D216 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E60A238B5E2B00A5D216 /* WelcomeViewModel.swift */; };
 		3469E60D238B5EE600A5D216 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E60C238B5EE600A5D216 /* SignInViewModel.swift */; };
 		3469E60F238B5F8800A5D216 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E60E238B5F8800A5D216 /* SignUpViewModel.swift */; };
+		346E0056238D5C300059C18B /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E0055238D5C300059C18B /* BaseNavigationController.swift */; };
 		34BE6CD22389808D0034B694 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE6CD12389808D0034B694 /* AppDelegate.swift */; };
 		34BE6CDB2389808E0034B694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BE6CDA2389808E0034B694 /* Assets.xcassets */; };
 		34BE6CDE2389808E0034B694 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34BE6CDC2389808E0034B694 /* LaunchScreen.storyboard */; };
 		34BE6CE62389834F0034B694 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE6CE52389834F0034B694 /* BaseViewController.swift */; };
 		34BE6CE8238986720034B694 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE6CE7238986720034B694 /* MainViewController.swift */; };
-		34BE6CEA238987900034B694 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE6CE9238987900034B694 /* Main.swift */; };
+		34BE6CEA238987900034B694 /* MainState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE6CE9238987900034B694 /* MainState.swift */; };
 		34BE6CEC2389892C0034B694 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE6CEB2389892C0034B694 /* MainViewModel.swift */; };
 		34BE6CEE23898BA90034B694 /* SignedInResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE6CED23898BA90034B694 /* SignedInResponder.swift */; };
 		34BE6CF023898C210034B694 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE6CEF23898C210034B694 /* UserSession.swift */; };
@@ -82,7 +83,7 @@
 		3469E5F5238B43FA00A5D216 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		3469E5F7238B440800A5D216 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		3469E5FE238B4DA100A5D216 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
-		3469E600238B4DF900A5D216 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		3469E600238B4DF900A5D216 /* OnboardingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingState.swift; sourceTree = "<group>"; };
 		3469E602238B4ED200A5D216 /* SignUpNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpNavigator.swift; sourceTree = "<group>"; };
 		3469E604238B4F3300A5D216 /* SignInNavigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInNavigator.swift; sourceTree = "<group>"; };
 		3469E606238B50B400A5D216 /* NavigationAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationAction.swift; sourceTree = "<group>"; };
@@ -90,6 +91,7 @@
 		3469E60A238B5E2B00A5D216 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
 		3469E60C238B5EE600A5D216 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		3469E60E238B5F8800A5D216 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		346E0055238D5C300059C18B /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		34BE6CCE2389808D0034B694 /* Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Login.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BE6CD12389808D0034B694 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34BE6CDA2389808E0034B694 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,7 +99,7 @@
 		34BE6CDF2389808E0034B694 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34BE6CE52389834F0034B694 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		34BE6CE7238986720034B694 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		34BE6CE9238987900034B694 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		34BE6CE9238987900034B694 /* MainState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainState.swift; sourceTree = "<group>"; };
 		34BE6CEB2389892C0034B694 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		34BE6CED23898BA90034B694 /* SignedInResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInResponder.swift; sourceTree = "<group>"; };
 		34BE6CEF23898C210034B694 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				34BE6D092389B6F50034B694 /* BaseView.swift */,
 				34BE6CE52389834F0034B694 /* BaseViewController.swift */,
+				346E0055238D5C300059C18B /* BaseNavigationController.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -185,7 +188,6 @@
 		3469E5DB238B3A0E00A5D216 /* UILayer */ = {
 			isa = PBXGroup;
 			children = (
-				34BE6CE9238987900034B694 /* Main.swift */,
 				34BE6CEB2389892C0034B694 /* MainViewModel.swift */,
 				34BE6CFD2389AC000034B694 /* LaunchViewModel.swift */,
 				34BE6CF7238995BF0034B694 /* NotSIgnedInResponder.swift */,
@@ -225,6 +227,7 @@
 				34BE6CF92389A0B80034B694 /* AppDependencyContainer.swift */,
 				34BE6D0B2389B7880034B694 /* LaunchView.swift */,
 				34BE6CFB2389A29C0034B694 /* LaunchViewController.swift */,
+				34BE6CE9238987900034B694 /* MainState.swift */,
 				34BE6CE7238986720034B694 /* MainViewController.swift */,
 				3469E5E8238B41F400A5D216 /* SignedIn */,
 				3469E5E4238B417200A5D216 /* Onboarding */,
@@ -271,6 +274,7 @@
 		3469E5E4238B417200A5D216 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				3469E600238B4DF900A5D216 /* OnboardingState.swift */,
 				3469E5E9238B421D00A5D216 /* OnboardingViewController.swift */,
 				3469E5F1238B43A400A5D216 /* OnboardingDependencyContainer.swift */,
 				3469E5E5238B418900A5D216 /* Welcome */,
@@ -284,7 +288,6 @@
 			isa = PBXGroup;
 			children = (
 				3469E5EB238B42FA00A5D216 /* WelcomeViewController.swift */,
-				3469E5F3238B43EB00A5D216 /* WecomeView.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -293,7 +296,6 @@
 			isa = PBXGroup;
 			children = (
 				3469E5ED238B434100A5D216 /* SignUpViewController.swift */,
-				3469E5F5238B43FA00A5D216 /* SignUpView.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -302,7 +304,6 @@
 			isa = PBXGroup;
 			children = (
 				3469E5EF238B436000A5D216 /* SignInViewController.swift */,
-				3469E5F7238B440800A5D216 /* SignInView.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -319,7 +320,6 @@
 			isa = PBXGroup;
 			children = (
 				3469E5FE238B4DA100A5D216 /* OnboardingViewModel.swift */,
-				3469E600238B4DF900A5D216 /* Onboarding.swift */,
 				3469E602238B4ED200A5D216 /* SignUpNavigator.swift */,
 				3469E604238B4F3300A5D216 /* SignInNavigator.swift */,
 				3469E5FB238B4C6F00A5D216 /* Welcome */,
@@ -340,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				3469E60A238B5E2B00A5D216 /* WelcomeViewModel.swift */,
+				3469E5F3238B43EB00A5D216 /* WecomeView.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -348,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				3469E60C238B5EE600A5D216 /* SignInViewModel.swift */,
+				3469E5F7238B440800A5D216 /* SignInView.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -356,6 +358,7 @@
 			isa = PBXGroup;
 			children = (
 				3469E60E238B5F8800A5D216 /* SignUpViewModel.swift */,
+				3469E5F5238B43FA00A5D216 /* SignUpView.swift */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -538,7 +541,7 @@
 				3469E603238B4ED200A5D216 /* SignUpNavigator.swift in Sources */,
 				3469E5D1238AF3CA00A5D216 /* AuthRemoteAPI.swift in Sources */,
 				34BE6CF223898C960034B694 /* UserProfile.swift in Sources */,
-				34BE6CEA238987900034B694 /* Main.swift in Sources */,
+				34BE6CEA238987900034B694 /* MainState.swift in Sources */,
 				34BE6CFE2389AC000034B694 /* LaunchViewModel.swift in Sources */,
 				34BE6D0A2389B6F50034B694 /* BaseView.swift in Sources */,
 				3469E5F8238B440800A5D216 /* SignInView.swift in Sources */,
@@ -554,7 +557,7 @@
 				3469E60F238B5F8800A5D216 /* SignUpViewModel.swift in Sources */,
 				34BE6D062389B0A60034B694 /* ErrorMessage.swift in Sources */,
 				34BE6CD22389808D0034B694 /* AppDelegate.swift in Sources */,
-				3469E601238B4DF900A5D216 /* Onboarding.swift in Sources */,
+				3469E601238B4DF900A5D216 /* OnboardingState.swift in Sources */,
 				3469E5FF238B4DA100A5D216 /* OnboardingViewModel.swift in Sources */,
 				34BE6CF62389916A0034B694 /* UserSessionDataStore.swift in Sources */,
 				34BE6CEE23898BA90034B694 /* SignedInResponder.swift in Sources */,
@@ -572,6 +575,7 @@
 				3469E60B238B5E2B00A5D216 /* WelcomeViewModel.swift in Sources */,
 				34BE6CE8238986720034B694 /* MainViewController.swift in Sources */,
 				3469E5EA238B421D00A5D216 /* OnboardingViewController.swift in Sources */,
+				346E0056238D5C300059C18B /* BaseNavigationController.swift in Sources */,
 				3469E5CD238AF0B700A5D216 /* Keychain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

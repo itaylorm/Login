@@ -19,7 +19,7 @@ class MainViewController: BaseViewController {
   // Child Controllers
   let launchViewController: LaunchViewController
   var onboardingViewController: OnboardingViewController?
-  //var signInViewController: SignInViewController?
+  var signedInViewController: SignedInViewController?
   
   let disposeBag = DisposeBag()
   
@@ -69,7 +69,7 @@ class MainViewController: BaseViewController {
   /// Provides means to recieve changes to the MainView enum
   /// Change then triggers a different screen to display
   /// - Parameter observable: Reference to MainView, change triggers different view display
-  func subscribe(to observable: Observable<Main>) {
+  func subscribe(to observable: Observable<MainState>) {
     
     observable
       .subscribe(onNext: { [weak self] view in
@@ -82,9 +82,9 @@ class MainViewController: BaseViewController {
   /// Displays the appropriate screen based upon current state of the application
   /// State changes are detected by change to the value of MainView which is an enum
   /// - Parameter view: Reference to main view containing state of application
-  func present(_ view: Main) {
+  func present(_ state: MainState) {
   
-    switch view {
+    switch state {
       case .launching: presentLaunching()
       case .onboarding: presentOnBoarding()
       case .signedIn(let userSession): presentSignedIn(userSession: userSession)
@@ -97,8 +97,28 @@ class MainViewController: BaseViewController {
     addFullScreen(childViewController: launchViewController)
   }
   
-  /// <#Description#>
+  /// Takes the user to the next step after launch to prompt to see the welcome screen and then to login or sign up
   func presentOnBoarding() {
+    
+    let onboardingViewController = makeOnboardingViewController()
+    
+    onboardingViewController.modalPresentationStyle = .fullScreen
+    
+    present(onboardingViewController, animated: true) { [weak self] in
+      
+      guard let strongSelf = self else {
+        return
+      }
+      
+      strongSelf.remove(childViewController: strongSelf.launchViewController)
+      
+      if let signedInViewController = strongSelf.signedInViewController {
+        strongSelf.remove(childViewController: signedInViewController)
+        strongSelf.signedInViewController = nil
+      }
+    }
+    
+    self.onboardingViewController = onboardingViewController
     
   }
   
