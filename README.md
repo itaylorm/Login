@@ -18,3 +18,6 @@ Currently there are two AppDependencyContainer and OnboardingDependencyContainer
 
 # Base Types
 The Common UIKit contains the root level items that the app inherits from that provide common functionality. BaseView contains the common methods for a UIView. BaseViewController has common methods for displaying a controller. BaseNavigationController contains all the common methods for displaying the navigation controller views. NavigationAction provides a means to determine if a view has been displayed or is to be displayed
+
+# Open Issue
+There currently a non-breaking error "Unbalanced calls to begin/end appearance transitions for <Login.MainViewController: 0x104e859a0>."
