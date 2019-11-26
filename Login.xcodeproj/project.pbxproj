@@ -161,7 +161,6 @@
 			children = (
 				3469E5D7238B38AB00A5D216 /* Error */,
 				3469E5D9238B398000A5D216 /* UIKit */,
-				3469E606238B50B400A5D216 /* NavigationAction.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -169,6 +168,7 @@
 		3469E5D9238B398000A5D216 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				3469E606238B50B400A5D216 /* NavigationAction.swift */,
 				34BE6D092389B6F50034B694 /* BaseView.swift */,
 				34BE6CE52389834F0034B694 /* BaseViewController.swift */,
 				346E0055238D5C300059C18B /* BaseNavigationController.swift */,
@@ -224,11 +224,11 @@
 		3469E5DE238B3B2600A5D216 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				34BE6CE9238987900034B694 /* MainState.swift */,
+				34BE6CE7238986720034B694 /* MainViewController.swift */,
 				34BE6CF92389A0B80034B694 /* AppDependencyContainer.swift */,
 				34BE6D0B2389B7880034B694 /* LaunchView.swift */,
 				34BE6CFB2389A29C0034B694 /* LaunchViewController.swift */,
-				34BE6CE9238987900034B694 /* MainState.swift */,
-				34BE6CE7238986720034B694 /* MainViewController.swift */,
 				3469E5E8238B41F400A5D216 /* SignedIn */,
 				3469E5E4238B417200A5D216 /* Onboarding */,
 			);

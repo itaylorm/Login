@@ -173,7 +173,7 @@ extension OnboardingViewController: UINavigationControllerDelegate {
     
   }
   
-  /// Uses the onboarding enum to determine which controller is
+  /// Uses the onboarding enum to determine which controller view  is to be displayed
   /// - Parameter viewController: View Controller currently be called
   func onboardingView(associatedWith viewController: UIViewController) -> OnboardingState? {
     switch viewController {
