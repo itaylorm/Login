@@ -80,8 +80,7 @@ class OnboardingViewController: BaseNavigationController {
     }
   }
 
-  
-  /// Triggers the display of approviate view
+  /// Triggers the display of appropriate view
   /// - Parameter state: onboarding state
   func present(state: OnboardingState) {
     switch state {

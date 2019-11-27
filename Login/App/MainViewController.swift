@@ -104,8 +104,6 @@ class MainViewController: BaseViewController {
     
     let onboardingViewController = makeOnboardingViewController()
     
-    onboardingViewController.modalPresentationStyle = .fullScreen
-    
     present(onboardingViewController, animated: true) { [weak self] in
       
       guard let strongSelf = self else {
@@ -120,6 +118,7 @@ class MainViewController: BaseViewController {
       }
     }
     
+    onboardingViewController.modalPresentationStyle = .fullScreen
     self.onboardingViewController = onboardingViewController
     
   }
