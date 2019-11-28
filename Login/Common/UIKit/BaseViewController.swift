@@ -71,9 +71,25 @@ open class BaseViewController: UIViewController {
     
   }
   
+  
+  /// Common method for handling errors
+  /// - Parameters:
+  ///   - viewModel: Associated view model
+  ///   - disposeBag: Dispose reference
+  func observeErrorMessages(viewModel: BaseViewModel, disposeBag: DisposeBag) {
+    viewModel
+      .errorMessages
+      .asDriver { _ in fatalError("Unexpected error from error messages observable.") }
+      .drive(onNext: { [weak self] errorMessage in
+        self?.present(errorMessage: errorMessage)
+      })
+      .disposed(by: disposeBag)
+  }
+  
   /// Displays error message as an alert
   /// - Parameter errorMessage: Error information to display
-  public func present(errorMessage: ErrorMessage) {
+  func present(errorMessage: ErrorMessage) {
+    
     let errorAlertController = UIAlertController(title: errorMessage.title,
                                                  message: errorMessage.message,
                                                  preferredStyle: .alert)
@@ -87,7 +103,7 @@ open class BaseViewController: UIViewController {
   /// - Parameters:
   ///   - errorMessage: Error information to display
   ///   - errorPresentation: errorPresentation description
-  public func present(errorMessage: ErrorMessage,
+  func present(errorMessage: ErrorMessage,
                       withPresentationState errorPresentation: BehaviorSubject<ErrorPresentation?>) {
     
     errorPresentation.onNext(.presenting)
@@ -102,4 +118,5 @@ open class BaseViewController: UIViewController {
     present(errorAlertController, animated: true, completion: nil)
     
   }
+
 }

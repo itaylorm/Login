@@ -12,7 +12,7 @@ import RxSwift
 typealias OnboardingNavigationAction = NavigationAction<OnboardingState>
 
 /// Handles the different conditions of starting up onboarding process
-class OnboardingViewModel: SignUpNavigator, SignInNavigator {
+class OnboardingViewModel: BaseViewModel, SignUpNavigator, SignInNavigator {
   
   // MARK: Properties
   
@@ -20,9 +20,6 @@ class OnboardingViewModel: SignUpNavigator, SignInNavigator {
   var view: Observable<OnboardingNavigationAction> { return _view }
   
   // MARK: Methods
-  
-  /// Default initializer
-  init() {}
   
   /// Takes user to the sign in view
   func SignUp() {

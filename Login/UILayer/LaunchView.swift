@@ -27,7 +27,7 @@ class LaunchView: BaseView {
     self.viewModel = viewModel
     super.init(frame: frame)
     
-    backgroundColor = UIColor.systemBackground
+    //backgroundColor = Color.primary
     viewModel.loadUserSession()
     
   }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		345870E5238ECA1400F39B58 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345870E4238ECA1400F39B58 /* BaseViewModel.swift */; };
+		345E0133238F313200675D1F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345E0132238F313200675D1F /* Theme.swift */; };
+		345E0135238F350300675D1F /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345E0134238F350300675D1F /* DarkTheme.swift */; };
+		345E0137238F355B00675D1F /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345E0136238F355B00675D1F /* LightTheme.swift */; };
 		3469E5C1238AE75500A5D216 /* UserSessionPropertyListEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E5C0238AE75500A5D216 /* UserSessionPropertyListEncoder.swift */; };
 		3469E5C3238AE7A900A5D216 /* UserSessionCoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E5C2238AE7A900A5D216 /* UserSessionCoding.swift */; };
 		3469E5C5238AE93B00A5D216 /* KeychainUserSessionDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E5C4238AE93B00A5D216 /* KeychainUserSessionDataStore.swift */; };
@@ -59,10 +63,15 @@
 		34BE6D082389B1640034B694 /* ErrorPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE6D072389B1640034B694 /* ErrorPresentation.swift */; };
 		34BE6D0A2389B6F50034B694 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE6D092389B6F50034B694 /* BaseView.swift */; };
 		34BE6D0C2389B7880034B694 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE6D0B2389B7880034B694 /* LaunchView.swift */; };
+		34FFDD21238EFDE4004F92D3 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FFDD20238EFDE4004F92D3 /* Color.swift */; };
 		A352343BE470E01030019841 /* Pods_Login.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7FA55FFA933A66FAF315172 /* Pods_Login.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		345870E4238ECA1400F39B58 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		345E0132238F313200675D1F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		345E0134238F350300675D1F /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
+		345E0136238F355B00675D1F /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		3469E5C0238AE75500A5D216 /* UserSessionPropertyListEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionPropertyListEncoder.swift; sourceTree = "<group>"; };
 		3469E5C2238AE7A900A5D216 /* UserSessionCoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionCoding.swift; sourceTree = "<group>"; };
 		3469E5C4238AE93B00A5D216 /* KeychainUserSessionDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainUserSessionDataStore.swift; sourceTree = "<group>"; };
@@ -117,6 +126,7 @@
 		34BE6D072389B1640034B694 /* ErrorPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresentation.swift; sourceTree = "<group>"; };
 		34BE6D092389B6F50034B694 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		34BE6D0B2389B7880034B694 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
+		34FFDD20238EFDE4004F92D3 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		C3011F77D003EDF90C7EA849 /* Pods-Login.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login.debug.xcconfig"; path = "Target Support Files/Pods-Login/Pods-Login.debug.xcconfig"; sourceTree = "<group>"; };
 		D7FA55FFA933A66FAF315172 /* Pods_Login.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Login.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDDB8966D8C1AEEDF8C0A214 /* Pods-Login.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Login.release.xcconfig"; path = "Target Support Files/Pods-Login/Pods-Login.release.xcconfig"; sourceTree = "<group>"; };
@@ -134,6 +144,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		345E0131238F312100675D1F /* Themes */ = {
+			isa = PBXGroup;
+			children = (
+				345E0132238F313200675D1F /* Theme.swift */,
+				345E0134238F350300675D1F /* DarkTheme.swift */,
+				345E0136238F355B00675D1F /* LightTheme.swift */,
+			);
+			path = Themes;
+			sourceTree = "<group>";
+		};
 		3469E5D6238B388700A5D216 /* Keychain */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,8 +179,10 @@
 		3469E5D8238B397700A5D216 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				345E0131238F312100675D1F /* Themes */,
 				3469E5D7238B38AB00A5D216 /* Error */,
 				3469E5D9238B398000A5D216 /* UIKit */,
+				34FFDD20238EFDE4004F92D3 /* Color.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -172,6 +194,7 @@
 				34BE6D092389B6F50034B694 /* BaseView.swift */,
 				34BE6CE52389834F0034B694 /* BaseViewController.swift */,
 				346E0055238D5C300059C18B /* BaseNavigationController.swift */,
+				345870E4238ECA1400F39B58 /* BaseViewModel.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -544,9 +567,11 @@
 				34BE6CEA238987900034B694 /* MainState.swift in Sources */,
 				34BE6CFE2389AC000034B694 /* LaunchViewModel.swift in Sources */,
 				34BE6D0A2389B6F50034B694 /* BaseView.swift in Sources */,
+				34FFDD21238EFDE4004F92D3 /* Color.swift in Sources */,
 				3469E5F8238B440800A5D216 /* SignInView.swift in Sources */,
 				34BE6D042389AEE90034B694 /* Secret.swift in Sources */,
 				34BE6CFA2389A0B80034B694 /* AppDependencyContainer.swift in Sources */,
+				345870E5238ECA1400F39B58 /* BaseViewModel.swift in Sources */,
 				3469E60D238B5EE600A5D216 /* SignInViewModel.swift in Sources */,
 				3469E5C3238AE7A900A5D216 /* UserSessionCoding.swift in Sources */,
 				34BE6D082389B1640034B694 /* ErrorPresentation.swift in Sources */,
@@ -556,8 +581,10 @@
 				3469E609238B566C00A5D216 /* SignedInViewController.swift in Sources */,
 				3469E60F238B5F8800A5D216 /* SignUpViewModel.swift in Sources */,
 				34BE6D062389B0A60034B694 /* ErrorMessage.swift in Sources */,
+				345E0135238F350300675D1F /* DarkTheme.swift in Sources */,
 				34BE6CD22389808D0034B694 /* AppDelegate.swift in Sources */,
 				3469E601238B4DF900A5D216 /* OnboardingState.swift in Sources */,
+				345E0137238F355B00675D1F /* LightTheme.swift in Sources */,
 				3469E5FF238B4DA100A5D216 /* OnboardingViewModel.swift in Sources */,
 				34BE6CF62389916A0034B694 /* UserSessionDataStore.swift in Sources */,
 				34BE6CEE23898BA90034B694 /* SignedInResponder.swift in Sources */,
@@ -569,6 +596,7 @@
 				3469E5C5238AE93B00A5D216 /* KeychainUserSessionDataStore.swift in Sources */,
 				3469E5EE238B434100A5D216 /* SignUpViewController.swift in Sources */,
 				3469E5C7238AED0200A5D216 /* KeychainItem.swift in Sources */,
+				345E0133238F313200675D1F /* Theme.swift in Sources */,
 				3469E5C9238AEEFE00A5D216 /* KeychainItemWithData.swift in Sources */,
 				3469E5F6238B43FA00A5D216 /* SignUpView.swift in Sources */,
 				3469E5F0238B436000A5D216 /* SignInViewController.swift in Sources */,

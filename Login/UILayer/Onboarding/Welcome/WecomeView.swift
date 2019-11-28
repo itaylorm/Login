@@ -17,7 +17,7 @@ class WelcomeView: BaseView {
   let appLogoImageView: UIImageView = {
   
     let imageView = UIImageView(image: UIImage(named: "iMaxwell"))
-    imageView.backgroundColor = UIColor.systemBackground
+    //imageView.backgroundColor = Color.primary
     return imageView
     
   }()
@@ -26,14 +26,12 @@ class WelcomeView: BaseView {
     let label = UILabel()
     label.font = .boldSystemFont(ofSize: 36)
     label.text = "KOOBER"
-    label.textColor = UIColor.white
     return label
   }()
 
   let signInButton: UIButton = {
     let button = UIButton(type: .custom)
     button.setTitle("Sign In", for: .normal)
-    button.layer.cornerRadius = 3
     button.titleLabel?.font = .boldSystemFont(ofSize: 18)
     button.heightAnchor
       .constraint(equalToConstant: 50)
@@ -44,9 +42,6 @@ class WelcomeView: BaseView {
   let signUpButton: UIButton = {
     let button = UIButton(type: .custom)
     button.setTitle("Sign Up", for: .normal)
-    button.layer.cornerRadius = 3
-    button.layer.borderWidth = 2
-    button.layer.borderColor = UIColor.white.cgColor
     button.titleLabel?.font = .boldSystemFont(ofSize: 18)
     button.heightAnchor
       .constraint(equalToConstant: 50)
@@ -75,6 +70,9 @@ class WelcomeView: BaseView {
        viewModel: WelcomeViewModel) {
     self.viewModel = viewModel
     super.init(frame: frame)
+    
+    //backgroundColor = Color.primary
+  
   }
   
   /// Triggers when window becomes available

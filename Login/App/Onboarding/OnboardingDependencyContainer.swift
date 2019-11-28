@@ -79,7 +79,7 @@ class OnboardingDependencyContainer: WelcomeViewModelFactory, SignInViewModelFac
   /// Generates dependencies and return sign up view controller
   func makeSignUpViewController() -> SignUpViewController {
     
-    return SignUpViewController(signUpViewModelFactory: self)
+    return SignUpViewController(viewModelFactory: self)
     
   }
   

@@ -42,22 +42,8 @@ class LaunchViewController: BaseViewController {
     super.viewDidLoad()
     
     view = LaunchView(viewModel: viewModel)
-  
+    
   }
   
-  /// Handle displaying error message
-  func observeErrorMessages() {
-    viewModel
-      .errorMessages
-      .asDriver { _ in fatalError("Unexpected error from error messages observable.") }
-      .drive(onNext: { [weak self] errorMessage in
-        guard let strongSelf = self else {
-          return
-        }
-        strongSelf.present(errorMessage: errorMessage,
-                           withPresentationState: strongSelf.viewModel.errorPresentation)
-      })
-      .disposed(by: disposeBag)
-  }
 }
 

@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 
 /// Handles the different conditions of starting up main view
-class MainViewModel: SignedInResponder, NotSignedInResponder {
+class MainViewModel: BaseViewModel, SignedInResponder, NotSignedInResponder {
   
   // MARK: Properties
   

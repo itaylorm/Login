@@ -55,7 +55,7 @@ class OnboardingViewController: BaseNavigationController {
     
     super.viewDidLoad()
     subscribe(to: viewModel.view)
-  
+    
   }
 
   /// Provides a means to respond to changes to onboard state

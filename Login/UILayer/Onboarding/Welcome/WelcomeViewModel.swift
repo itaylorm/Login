@@ -9,7 +9,7 @@
 import Foundation
 
 /// Handles display of welcome screen
-class WelcomeViewModel {
+class WelcomeViewModel: BaseViewModel {
   
   // MARK: Properties
   

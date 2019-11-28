@@ -11,19 +11,13 @@ import PromiseKit
 import RxSwift
 
 /// Handles displaying launching screen
-class LaunchViewModel {
+class LaunchViewModel: BaseViewModel {
   
   // MARK: Properties
   
   let userSessionRepository: UserSessionRepository
   let notSignedInResponder: NotSignedInResponder
   let signedInResponder: SignedInResponder
-  
-  var errorMessages: Observable<ErrorMessage> {
-    return self.errorMessagesSubject.asObserver()
-  }
-  
-  private let errorMessagesSubject: PublishSubject<ErrorMessage> = PublishSubject()
   
   let errorPresentation: BehaviorSubject<ErrorPresentation?> = BehaviorSubject(value: nil)
   

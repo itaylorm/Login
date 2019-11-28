@@ -9,7 +9,7 @@
 import Foundation
 
 /// Handles display of sign in screen
-class SignInViewModel {
+class SignInViewModel: BaseViewModel {
   
   // MARK: Properties
   

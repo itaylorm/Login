@@ -103,6 +103,7 @@ class MainViewController: BaseViewController {
   func presentOnBoarding() {
     
     let onboardingViewController = makeOnboardingViewController()
+    onboardingViewController.modalPresentationStyle = .overFullScreen
     
     present(onboardingViewController, animated: true) { [weak self] in
       
@@ -118,7 +119,6 @@ class MainViewController: BaseViewController {
       }
     }
     
-    onboardingViewController.modalPresentationStyle = .fullScreen
     self.onboardingViewController = onboardingViewController
     
   }
