@@ -16,7 +16,7 @@ class WelcomeView: BaseView {
   
   let appLogoImageView: UIImageView = {
   
-    let imageView = UIImageView(image: UIImage(named: "iMaxwell"))
+    let imageView = UIImageView(image: UIImage(named: "tag_icon"))
     //imageView.backgroundColor = Color.primary
     return imageView
     
