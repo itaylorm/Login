@@ -17,5 +17,8 @@ There are state types in the app MainState and OnboardingState. These are used t
 Currently there are two AppDependencyContainer and OnboardingDependencyContainer. Both assemble and configure the different UI View Controllers associate with part of the app. AppDependencyContainer is concerned with the MainViewController and  and associated LaunchingViewController, OnboardingViewController, and SignedInViewController. OnboardingDependencyContainer is concerned with the dependent WelcomeViewController, SignInViewController and SignUpViewController.
 
 # Base Types
-The Common UIKit contains the root level items that the app inherits from that provide common functionality. BaseView contains the common methods for a UIView. BaseViewController has common methods for displaying a controller. BaseNavigationController contains all the common methods for displaying the navigation controller views. NavigationAction provides a means to determine if a view has been displayed or is to be displayed
+The Common UIKit contains the root level items that the app inherits from that provide common functionality. BaseView contains the common methods for a UIView. BaseViewController has common methods for displaying a controller. BaseNavigationController contains all the common methods for displaying the navigation controller views. NavigationAction provides a means to determine if a view has been displayed or is to be displayed.
+
+# Themes
+Added theme for light and dark as well as support to change colors based upon the dark or light theme selected in Settings on the IPhone. This does not change the theme if the application is running but will change if you shut down the app and start again. More to do there.
 
