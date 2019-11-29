@@ -22,3 +22,8 @@ The Common UIKit contains the root level items that the app inherits from that p
 # Themes
 Added theme for light and dark as well as support to change colors based upon the dark or light theme selected in Settings on the IPhone. This does not change the theme if the application is running but will change if you shut down the app and start again. More to do there.
 
+# Button Layer Styles
+You cannot put the style properties into the theme so created a common Button struct to contain them so they can be reused. 
+
+# Color
+Also created primary color in struct Color which matches the logo and Icon colors
