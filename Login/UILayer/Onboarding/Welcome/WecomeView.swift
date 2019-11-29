@@ -14,19 +14,27 @@ class WelcomeView: BaseView {
   let viewModel: WelcomeViewModel
   var hierarchyNotReady = true
   
-  let appLogoImageView: UIImageView = {
-  
-    let imageView = UIImageView(image: UIImage(named: "tag_icon"))
-    //imageView.backgroundColor = Color.primary
-    return imageView
-    
+  let topView: UIView = {
+      
+    let topView = UIView()
+    topView.translatesAutoresizingMaskIntoConstraints = false
+    return topView
   }()
   
-  let appNameLabel: UILabel = {
-    let label = UILabel()
-    label.font = .boldSystemFont(ofSize: 36)
-    label.text = "KOOBER"
-    return label
+  let bottomView: UIView = {
+      
+    let bottomView = UIView()
+    bottomView.translatesAutoresizingMaskIntoConstraints = false
+    return bottomView
+  }()
+  
+  let appLogoImageView: UIImageView = {
+  
+    let imageView = UIImageView(image: UIImage(named: "Welcome"))
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    imageView.contentMode = .scaleAspectFit
+    return imageView
+    
   }()
 
   let signInButton: UIButton = {
@@ -52,6 +60,7 @@ class WelcomeView: BaseView {
   lazy var buttonStackView: UIStackView = {
     let stackView =
       UIStackView(arrangedSubviews: [signInButton, signUpButton])
+    stackView.translatesAutoresizingMaskIntoConstraints = false
     stackView.axis = .horizontal
     stackView.distribution = .fillEqually
     stackView.alignment = .center
@@ -70,8 +79,6 @@ class WelcomeView: BaseView {
        viewModel: WelcomeViewModel) {
     self.viewModel = viewModel
     super.init(frame: frame)
-    
-    //backgroundColor = Color.primary
   
   }
   
@@ -98,52 +105,60 @@ class WelcomeView: BaseView {
   /// Assemble controls on screen
   func constructHierarchy() {
     
-    addSubview(appLogoImageView)
-    addSubview(buttonStackView)
+    addSubview(topView)
+    topView.addSubview(appLogoImageView)
+    
+    addSubview(bottomView)
+    bottomView.addSubview(buttonStackView)
     
   }
 
   /// Apply control constraints
   func activateConstraints() {
     
+    activateContraintsTopView()
     activateConstraintsAppLogo()
+    activateContraintsBottomView()
     activateConstraintsButtons()
     
   }
 
+  /// Configure the top container to fill top of screen
+  func activateContraintsTopView() {
+  
+    let top = topView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
+    let height = topView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.7)
+    let left = topView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor)
+    let right = topView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
+    NSLayoutConstraint.activate([top, height, left, right])
+  
+  }
+  
+  /// Configure the top container to fill bottom of screen
+  func activateContraintsBottomView() {
+  
+    let bottom = bottomView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+    let height = bottomView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.3)
+    let left = bottomView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor)
+    let right = bottomView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
+    NSLayoutConstraint.activate([bottom, height, left, right])
+  
+  }
+  
   /// Apply logo constraints to position on screen
   func activateConstraintsAppLogo() {
     
-    appLogoImageView.translatesAutoresizingMaskIntoConstraints = false
-    let centerY = appLogoImageView.centerYAnchor
-      .constraint(equalTo: centerYAnchor)
-    
-    let centerX = appLogoImageView.centerXAnchor
-      .constraint(equalTo: centerXAnchor)
-    
-    NSLayoutConstraint.activate([centerY, centerX])
-    
-  }
-  
-  /// Apply label constrains to position on screen
-  func activateConstraintsAppNameLabel() {
-    
-    appNameLabel.translatesAutoresizingMaskIntoConstraints = false
-    
-    let centerX = appNameLabel.centerXAnchor
-      .constraint(equalTo: appLogoImageView.centerXAnchor)
-    
-    let top = appNameLabel.topAnchor
-      .constraint(equalTo: appLogoImageView.bottomAnchor, constant: 10)
-    
-    NSLayoutConstraint.activate([centerX, top])
+    let top = appLogoImageView.topAnchor.constraint(equalTo: topView.topAnchor, constant: 50)
+    let centerX = appLogoImageView.centerXAnchor.constraint(equalTo: topView.centerXAnchor)
+    let height = appLogoImageView.heightAnchor.constraint(equalTo: topView.heightAnchor, multiplier: 0.8)
+    let width = appLogoImageView.widthAnchor.constraint(equalTo: topView.widthAnchor, multiplier: 0.8)
+    NSLayoutConstraint.activate([top, centerX, height, width])
     
   }
 
   /// Apply button constrains and position on screen
   func activateConstraintsButtons() {
     
-    buttonStackView.translatesAutoresizingMaskIntoConstraints = false
     let leading = buttonStackView.leadingAnchor
       .constraint(equalTo: layoutMarginsGuide.leadingAnchor)
     

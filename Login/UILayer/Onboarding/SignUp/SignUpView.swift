@@ -50,7 +50,7 @@ class SignUpView: BaseView {
     imageView.widthAnchor
       .constraint(equalToConstant: 40)
       .isActive = true
-    imageView.image = UIImage(named:"person_icon")?.withRenderingMode(.alwaysTemplate)
+    imageView.image = UIImage(named:"SignUp")
     imageView.contentMode = .center
     return imageView
   }()
@@ -189,8 +189,6 @@ class SignUpView: BaseView {
     
     self.viewModel = viewModel
     super.init(frame: frame)
-    
-    //backgroundColor = Color.primary
     
   }
   
