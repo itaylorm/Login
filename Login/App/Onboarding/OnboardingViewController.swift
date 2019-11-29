@@ -100,12 +100,12 @@ class OnboardingViewController: BaseNavigationController {
 
   // Display sign in
   func presentSignIn() {
-    pushViewController(signInViewController, animated: true)
+    pushViewController(signInViewController, animated: false)
   }
 
   // Display sign up
   func presentSignUp() {
-    pushViewController(signUpViewController, animated: true)
+    pushViewController(signUpViewController, animated: false)
   }
 }
 

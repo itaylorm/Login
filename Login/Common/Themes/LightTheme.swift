@@ -10,9 +10,9 @@ import UIKit
 
 struct LightTheme: Theme {
   
-  let tint: UIColor = .blue
-  let secondaryTint: UIColor = .orange
-  let iconTint: UIColor = .white
+  let tint: UIColor = .systemBlue
+  let secondaryTint: UIColor = .systemOrange
+  let iconTint: UIColor = .systemBlue
   
   let backgroundColor: UIColor = .white
   let separatorColor: UIColor = .lightGray

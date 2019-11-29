@@ -11,8 +11,8 @@ import UIKit
 struct DarkTheme: Theme {
   
   let tint: UIColor = .yellow
-  let secondaryTint: UIColor = .green
-  let iconTint: UIColor = .yellow
+  let secondaryTint: UIColor = .systemGreen
+  let iconTint: UIColor = .systemYellow
   
   let backgroundColor: UIColor = .black
   let separatorColor: UIColor = .lightGray

@@ -50,7 +50,7 @@ class SignUpView: BaseView {
     imageView.widthAnchor
       .constraint(equalToConstant: 40)
       .isActive = true
-    imageView.image = UIImage(named:"SignUp")
+    imageView.image = UIImage(named:"person_icon")?.withRenderingMode(.alwaysTemplate)
     imageView.contentMode = .center
     return imageView
   }()
@@ -60,6 +60,7 @@ class SignUpView: BaseView {
     field.placeholder = "Full Name"
     field.autocorrectionType = .no
     field.autocapitalizationType = .words
+    field.borderStyle = .roundedRect
     return field
   }()
 
@@ -87,6 +88,7 @@ class SignUpView: BaseView {
     field.placeholder = "What should we call you?"
     field.autocorrectionType = .no
     field.autocapitalizationType = .words
+    field.borderStyle = .roundedRect
     return field
   }()
 
@@ -115,6 +117,7 @@ class SignUpView: BaseView {
     field.keyboardType = .emailAddress
     field.autocapitalizationType = .none
     field.autocorrectionType = .no
+    field.borderStyle = .roundedRect
     return field
   }()
 
@@ -143,6 +146,7 @@ class SignUpView: BaseView {
     field.keyboardType = .phonePad
     field.autocapitalizationType = .none
     field.autocorrectionType = .no
+    field.borderStyle = .roundedRect
     return field
   }()
 
@@ -169,6 +173,7 @@ class SignUpView: BaseView {
     let field = UITextField()
     field.placeholder = "Password"
     field.isSecureTextEntry = true
+    field.borderStyle = .roundedRect
     return field
   }()
 
