@@ -25,5 +25,8 @@ Added theme for light and dark as well as support to change colors based upon th
 # Button Layer Styles
 You cannot put the style properties into the theme so created a common Button struct to contain them so they can be reused. 
 
+# Text Field Styles
+Now have a UITextFieldExtensions class that handles formatting text fields to have underlines and to be able to control the color of placeholder text
+
 # Color
 Also created primary color in struct Color which matches the logo and Icon colors
