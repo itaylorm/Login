@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   private let dependencyContainer = AppDependencyContainer()
-  private var theme: Theme = LightTheme()
+  var theme: Theme = LightTheme()
   
   var window: UIWindow?
   

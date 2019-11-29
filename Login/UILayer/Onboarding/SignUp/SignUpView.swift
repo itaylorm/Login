@@ -69,7 +69,6 @@ class SignUpView: BaseView {
     field.placeholder = "Full Name"
     field.autocorrectionType = .no
     field.autocapitalizationType = .words
-    field.borderStyle = .roundedRect
     return field
   }()
 
@@ -97,7 +96,6 @@ class SignUpView: BaseView {
     field.placeholder = "What should we call you?"
     field.autocorrectionType = .no
     field.autocapitalizationType = .words
-    field.borderStyle = .roundedRect
     return field
   }()
 
@@ -126,7 +124,6 @@ class SignUpView: BaseView {
     field.keyboardType = .emailAddress
     field.autocapitalizationType = .none
     field.autocorrectionType = .no
-    field.borderStyle = .roundedRect
     return field
   }()
 
@@ -155,7 +152,6 @@ class SignUpView: BaseView {
     field.keyboardType = .phonePad
     field.autocapitalizationType = .none
     field.autocorrectionType = .no
-    field.borderStyle = .roundedRect
     return field
   }()
 
@@ -182,7 +178,6 @@ class SignUpView: BaseView {
     let field = UITextField()
     field.placeholder = "Password"
     field.isSecureTextEntry = true
-    field.borderStyle = .roundedRect
     return field
   }()
 
@@ -276,10 +271,12 @@ class SignUpView: BaseView {
       return
     }
     
-    //backgroundColor = Color.primary
+    formatTextFields()
     constructHierarchy()
+
     activateConstraints()
     wireController()
+
     hierarchyNotReady = false
   }
 
@@ -294,7 +291,7 @@ class SignUpView: BaseView {
   }
 
   // Position controls on the screen
-  func activateConstraints() {
+  private func activateConstraints() {
   
     activateConstraintsScrollView()
     activateConstraintsContentView()
@@ -304,7 +301,7 @@ class SignUpView: BaseView {
   }
 
   /// Trigger sign up when user clicks sign up button
-  func wireController() {
+  private func wireController() {
     signUpButton.addTarget(self, action: #selector(signUp), for: .touchUpInside)
   }
 
@@ -319,8 +316,29 @@ class SignUpView: BaseView {
     resetScrollViewContentInset()
   }
   
+  /// Configure text fields with bottom lines
+  private func formatTextFields() {
+    
+    formatTextField(field: self.fullNameField)
+    formatTextField(field: self.nicknameField)
+    formatTextField(field: self.emailField)
+    formatTextField(field: self.mobileNumberField)
+    formatTextField(field: self.passwordField)
+    
+  }
+  
+  /// Configure passed text field appearance
+  /// - Parameter field: Passed text field to format
+  private func formatTextField(field: UITextField) {
+    
+    field.placeHolderColor = UIColor.gray
+    field.addPadding()
+    field.bottomBorderColor = Color.primary
+    
+  }
+  
   /// Scroll
-  func resetScrollViewContentInset() {
+  private func resetScrollViewContentInset() {
     
     let scrollViewBounds = scrollView.bounds
     let contentViewHeight = CGFloat(330.0)

@@ -41,6 +41,7 @@
 		3469E60D238B5EE600A5D216 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E60C238B5EE600A5D216 /* SignInViewModel.swift */; };
 		3469E60F238B5F8800A5D216 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3469E60E238B5F8800A5D216 /* SignUpViewModel.swift */; };
 		346E0056238D5C300059C18B /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346E0055238D5C300059C18B /* BaseNavigationController.swift */; };
+		34AF1C152391812300FAC67B /* UITextFieldExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34AF1C142391812300FAC67B /* UITextFieldExtensions.swift */; };
 		34BE6CD22389808D0034B694 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34BE6CD12389808D0034B694 /* AppDelegate.swift */; };
 		34BE6CDB2389808E0034B694 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34BE6CDA2389808E0034B694 /* Assets.xcassets */; };
 		34BE6CDE2389808E0034B694 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 34BE6CDC2389808E0034B694 /* LaunchScreen.storyboard */; };
@@ -103,6 +104,7 @@
 		3469E60C238B5EE600A5D216 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		3469E60E238B5F8800A5D216 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		346E0055238D5C300059C18B /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		34AF1C142391812300FAC67B /* UITextFieldExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtensions.swift; sourceTree = "<group>"; };
 		34BE6CCE2389808D0034B694 /* Login.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Login.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34BE6CD12389808D0034B694 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		34BE6CDA2389808E0034B694 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				34BE6CE52389834F0034B694 /* BaseViewController.swift */,
 				346E0055238D5C300059C18B /* BaseNavigationController.swift */,
 				345870E4238ECA1400F39B58 /* BaseViewModel.swift */,
+				34AF1C142391812300FAC67B /* UITextFieldExtensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				345870E5238ECA1400F39B58 /* BaseViewModel.swift in Sources */,
 				3469E60D238B5EE600A5D216 /* SignInViewModel.swift in Sources */,
 				3469E5C3238AE7A900A5D216 /* UserSessionCoding.swift in Sources */,
+				34AF1C152391812300FAC67B /* UITextFieldExtensions.swift in Sources */,
 				34BE6D082389B1640034B694 /* ErrorPresentation.swift in Sources */,
 				34BE6D0C2389B7880034B694 /* LaunchView.swift in Sources */,
 				3469E5CF238AF28F00A5D216 /* AppUserSessionRepository.swift in Sources */,

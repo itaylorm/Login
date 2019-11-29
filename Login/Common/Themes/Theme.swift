@@ -43,7 +43,8 @@ extension Theme {
     UITabBar.appearance().barStyle = barStyle
 
     UINavigationBar.appearance().barStyle = barStyle
-    UINavigationBar.appearance().tintColor = tint
+    UINavigationBar.appearance().tintColor = labelColor
+    UINavigationBar.appearance().backgroundColor = Color.primary
     UINavigationBar.appearance().titleTextAttributes = [
        .foregroundColor: labelColor
     ]
@@ -71,7 +72,7 @@ extension Theme {
     
     UISwitch.appearance().tintColor = tint
     
-    UITextField.appearance().backgroundColor = .white
+    UITextField.appearance().backgroundColor = backgroundColor
     
    }
 }
