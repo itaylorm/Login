@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		343219F1239152DB007637F3 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 343219F0239152DB007637F3 /* Button.swift */; };
 		345870E5238ECA1400F39B58 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345870E4238ECA1400F39B58 /* BaseViewModel.swift */; };
 		345E0133238F313200675D1F /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345E0132238F313200675D1F /* Theme.swift */; };
 		345E0135238F350300675D1F /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345E0134238F350300675D1F /* DarkTheme.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		343219F0239152DB007637F3 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		345870E4238ECA1400F39B58 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		345E0132238F313200675D1F /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		345E0134238F350300675D1F /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
@@ -147,9 +149,11 @@
 		345E0131238F312100675D1F /* Themes */ = {
 			isa = PBXGroup;
 			children = (
+				34FFDD20238EFDE4004F92D3 /* Color.swift */,
 				345E0132238F313200675D1F /* Theme.swift */,
 				345E0134238F350300675D1F /* DarkTheme.swift */,
 				345E0136238F355B00675D1F /* LightTheme.swift */,
+				343219F0239152DB007637F3 /* Button.swift */,
 			);
 			path = Themes;
 			sourceTree = "<group>";
@@ -182,7 +186,6 @@
 				345E0131238F312100675D1F /* Themes */,
 				3469E5D7238B38AB00A5D216 /* Error */,
 				3469E5D9238B398000A5D216 /* UIKit */,
-				34FFDD20238EFDE4004F92D3 /* Color.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -585,6 +588,7 @@
 				34BE6CD22389808D0034B694 /* AppDelegate.swift in Sources */,
 				3469E601238B4DF900A5D216 /* OnboardingState.swift in Sources */,
 				345E0137238F355B00675D1F /* LightTheme.swift in Sources */,
+				343219F1239152DB007637F3 /* Button.swift in Sources */,
 				3469E5FF238B4DA100A5D216 /* OnboardingViewModel.swift in Sources */,
 				34BE6CF62389916A0034B694 /* UserSessionDataStore.swift in Sources */,
 				34BE6CEE23898BA90034B694 /* SignedInResponder.swift in Sources */,

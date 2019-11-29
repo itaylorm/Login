@@ -13,6 +13,8 @@ import UIKit
 /// Based upon this article: https://basememara.com/protocol-oriented-themes-for-ios-apps/
 protocol Theme {
   
+  var primary: UIColor { get}
+  
   var tint: UIColor { get }
   var secondaryTint: UIColor { get }
   var iconTint: UIColor { get }
@@ -24,6 +26,7 @@ protocol Theme {
   var labelColor: UIColor { get }
   var secondaryLabelColor: UIColor { get }
   var subtleLabelColor: UIColor { get }
+  var titleLabelColor: UIColor { get }
 
   var barStyle: UIBarStyle { get }
 
@@ -64,13 +67,10 @@ extension Theme {
 
     UILabel.appearance().textColor = labelColor
 
-    UIButton.appearance().layer.borderColor = borderColor
-    UIButton.appearance().setTitleColor(tint, for: .normal)
-    UIButton.appearance().layer.borderWidth = 1
-    UIButton.appearance().layer.cornerRadius = 3
-
+    UIButton.appearance().setTitleColor(titleLabelColor, for: .normal)
+    
     UISwitch.appearance().tintColor = tint
-
+    
     UITextField.appearance().backgroundColor = .white
     
    }

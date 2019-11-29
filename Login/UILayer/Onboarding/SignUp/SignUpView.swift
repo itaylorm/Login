@@ -20,8 +20,17 @@ class SignUpView: BaseView {
   
   var hierarchyNotReady = true
   
-  let scrollView: UIScrollView = UIScrollView()
-  let contentView: UIView = UIView()
+  let scrollView: UIScrollView = {
+    let scroll = UIScrollView()
+    scroll.translatesAutoresizingMaskIntoConstraints = false
+    return scroll
+  }()
+  
+  let contentView: UIView = {
+    let content = UIView()
+    content.translatesAutoresizingMaskIntoConstraints = false
+    return content
+  }()
   
   lazy var inputStack: UIStackView = {
     let stack = UIStackView(arrangedSubviews: [
@@ -178,10 +187,19 @@ class SignUpView: BaseView {
   }()
 
   let signUpButton: UIButton = {
+    
     let button = UIButton(type: .custom)
     button.setTitle("Sign Up", for: .normal)
-    button.titleLabel?.font = .boldSystemFont(ofSize: 18)
+    button.titleLabel?.font = Button.font
+    button.layer.borderWidth = Button.borderWidth
+    button.layer.cornerRadius = Button.cornerRadius
+    button.layer.borderColor = Button.borderColor
+    button.layer.backgroundColor = Button.backgroundColor
+    button.translatesAutoresizingMaskIntoConstraints = false
+    button.heightAnchor.constraint(equalToConstant: Button.height).isActive = true
+    button.widthAnchor.constraint(equalToConstant: Button.width).isActive = true
     return button
+    
   }()
   
   // MARK: Methods
@@ -265,34 +283,45 @@ class SignUpView: BaseView {
     hierarchyNotReady = false
   }
 
+  /// Add controls to their containers
   func constructHierarchy() {
+    
     scrollView.addSubview(contentView)
     contentView.addSubview(inputStack)
     contentView.addSubview(signUpButton)
     addSubview(scrollView)
+  
   }
 
+  // Position controls on the screen
   func activateConstraints() {
+  
     activateConstraintsScrollView()
     activateConstraintsContentView()
     activateConstraintsInputStack()
     activateConstraintsSignUpButton()
+  
   }
 
+  /// Trigger sign up when user clicks sign up button
   func wireController() {
     signUpButton.addTarget(self, action: #selector(signUp), for: .touchUpInside)
   }
 
+  /// Sign up handler
   @objc func signUp() {
     endEditing(true)
     viewModel.signUp()
   }
 
+  /// Trigger layout of content when scrolls
   func configureViewAfterLayout() {
     resetScrollViewContentInset()
   }
   
+  /// Scroll
   func resetScrollViewContentInset() {
+    
     let scrollViewBounds = scrollView.bounds
     let contentViewHeight = CGFloat(330.0)
 
@@ -306,8 +335,9 @@ class SignUpView: BaseView {
     scrollView.contentInset = scrollViewInsets
   }
   
+  /// Configure scroll position
   func activateConstraintsScrollView() {
-    scrollView.translatesAutoresizingMaskIntoConstraints = false
+
     let leading = scrollView.leadingAnchor
       .constraint(equalTo: layoutMarginsGuide.leadingAnchor)
     let trailing = scrollView.trailingAnchor
@@ -320,8 +350,9 @@ class SignUpView: BaseView {
       [leading, trailing, top, bottom])
   }
   
+  /// Configure container view position
   func activateConstraintsContentView() {
-    contentView.translatesAutoresizingMaskIntoConstraints = false
+    
     let width = contentView.widthAnchor
       .constraint(equalTo: scrollView.widthAnchor)
     let leading = contentView.leadingAnchor
@@ -336,7 +367,9 @@ class SignUpView: BaseView {
       [width, leading, trailing, top, bottom])
   }
   
+  /// Configure the data entry stack container position
   func activateConstraintsInputStack() {
+    
     inputStack.translatesAutoresizingMaskIntoConstraints = false
     let leading = inputStack.leadingAnchor
       .constraint(equalTo: contentView.leadingAnchor)
@@ -346,31 +379,33 @@ class SignUpView: BaseView {
       .constraint(equalTo: contentView.topAnchor)
     NSLayoutConstraint.activate(
       [leading, trailing, top])
+    
   }
 
+  /// Position sign up button
   func activateConstraintsSignUpButton() {
-    signUpButton.translatesAutoresizingMaskIntoConstraints = false
-    let leading = signUpButton.leadingAnchor
-      .constraint(equalTo: contentView.leadingAnchor)
-    let trailing = signUpButton.trailingAnchor
-      .constraint(equalTo: contentView.trailingAnchor)
+    
+    let centerX = signUpButton.centerXAnchor.constraint(equalTo: inputStack.centerXAnchor)
     let top = signUpButton.topAnchor
       .constraint(equalTo: inputStack.bottomAnchor, constant: 20)
     let bottom = contentView.bottomAnchor
       .constraint(equalTo: signUpButton.bottomAnchor, constant: 20)
-    let height = signUpButton.heightAnchor
-      .constraint(equalToConstant: 50)
-    NSLayoutConstraint.activate([leading, trailing, top, bottom, height])
+    NSLayoutConstraint.activate([centerX, top, bottom])
+    
   }
   
+  /// Scroll
   func moveContentForDismissedKeyboard() {
     resetScrollViewContentInset()
   }
   
+  /// Ensure that data entry controls are visible when scrolling
   func moveContent(forKeyboardFrame keyboardFrame: CGRect) {
+    
     var insets = scrollView.contentInset
     insets.bottom = keyboardFrame.height
     scrollView.contentInset = insets
+    
   }
 
 }

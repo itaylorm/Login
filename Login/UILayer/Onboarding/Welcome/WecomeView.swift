@@ -38,31 +38,37 @@ class WelcomeView: BaseView {
   }()
 
   let signInButton: UIButton = {
+    
     let button = UIButton(type: .custom)
     button.setTitle("Sign In", for: .normal)
-    button.titleLabel?.font = .boldSystemFont(ofSize: 18)
-    button.heightAnchor
-      .constraint(equalToConstant: 50)
-      .isActive = true
+    button.titleLabel?.font = Button.font
+    button.layer.borderWidth = Button.borderWidth
+    button.layer.cornerRadius = Button.cornerRadius
+    button.layer.borderColor = Button.borderColor
+    button.layer.backgroundColor = Button.backgroundColor
+    button.heightAnchor.constraint(equalToConstant: Button.height).isActive = true
+    button.widthAnchor.constraint(equalToConstant: Button.width).isActive = true
+    
     return button
+    
   }()
 
   let signUpButton: UIButton = {
+    
     let button = UIButton(type: .custom)
-    button.setTitle("Sign Up", for: .normal)
-    button.titleLabel?.font = .boldSystemFont(ofSize: 18)
-    button.heightAnchor
-      .constraint(equalToConstant: 50)
-      .isActive = true
+    button.setTitle("Sign Up?", for: .normal)
+    button.setTitleColor(Color.primary, for: .normal)
+    button.titleLabel?.font = Button.font
+    button.heightAnchor.constraint(equalToConstant: Button.height).isActive = true
     return button
+    
   }()
 
   lazy var buttonStackView: UIStackView = {
     let stackView =
       UIStackView(arrangedSubviews: [signInButton, signUpButton])
     stackView.translatesAutoresizingMaskIntoConstraints = false
-    stackView.axis = .horizontal
-    stackView.distribution = .fillEqually
+    stackView.axis = .vertical
     stackView.alignment = .center
     stackView.spacing = 10
     return stackView
@@ -127,7 +133,7 @@ class WelcomeView: BaseView {
   func activateContraintsTopView() {
   
     let top = topView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
-    let height = topView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.7)
+    let height = topView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.6)
     let left = topView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor)
     let right = topView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
     NSLayoutConstraint.activate([top, height, left, right])
@@ -138,7 +144,7 @@ class WelcomeView: BaseView {
   func activateContraintsBottomView() {
   
     let bottom = bottomView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
-    let height = bottomView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.3)
+    let height = bottomView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.4)
     let left = bottomView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor)
     let right = bottomView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
     NSLayoutConstraint.activate([bottom, height, left, right])
@@ -148,7 +154,7 @@ class WelcomeView: BaseView {
   /// Apply logo constraints to position on screen
   func activateConstraintsAppLogo() {
     
-    let top = appLogoImageView.topAnchor.constraint(equalTo: topView.topAnchor, constant: 50)
+    let top = appLogoImageView.topAnchor.constraint(equalTo: topView.topAnchor, constant: 25)
     let centerX = appLogoImageView.centerXAnchor.constraint(equalTo: topView.centerXAnchor)
     let height = appLogoImageView.heightAnchor.constraint(equalTo: topView.heightAnchor, multiplier: 0.8)
     let width = appLogoImageView.widthAnchor.constraint(equalTo: topView.widthAnchor, multiplier: 0.8)
@@ -168,10 +174,7 @@ class WelcomeView: BaseView {
     let bottom = safeAreaLayoutGuide.bottomAnchor
       .constraint(equalTo: buttonStackView.bottomAnchor, constant: 30)
     
-    let height = buttonStackView.heightAnchor
-      .constraint(equalToConstant: 50)
-    
-    NSLayoutConstraint.activate([leading, trailing, bottom, height])
+    NSLayoutConstraint.activate([leading, trailing, bottom])
     
   }
   

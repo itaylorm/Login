@@ -10,7 +10,8 @@ import UIKit
 
 struct DarkTheme: Theme {
   
-  let tint: UIColor = .yellow
+  let primary: UIColor = Color.primary
+  let tint: UIColor = .white
   let secondaryTint: UIColor = .systemGreen
   let iconTint: UIColor = .systemYellow
   
@@ -21,7 +22,8 @@ struct DarkTheme: Theme {
   let labelColor: UIColor = .white
   let secondaryLabelColor: UIColor = .lightGray
   let subtleLabelColor: UIColor = .darkGray
-
+  let titleLabelColor: UIColor = .white
+  
   let barStyle: UIBarStyle = .black
 
   let borderColor: CGColor = UIColor.white.cgColor
