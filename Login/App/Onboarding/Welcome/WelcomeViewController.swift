@@ -37,6 +37,13 @@ class WelcomeViewController: BaseViewController {
   
   }
   
+  /// Triggers when sub views appear
+  override func viewDidLayoutSubviews() {
+    
+    super.viewDidLayoutSubviews()
+    (view as! WelcomeView).configureViewAfterLayout()
+    
+  }
 }
 
 /// Handles generating welcome view model

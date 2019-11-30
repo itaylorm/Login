@@ -28,11 +28,28 @@ class WelcomeView: BaseView {
   
   // MARK: Controls
   
+  let contentView: UIView = {
+    let content = UIView()
+    content.translatesAutoresizingMaskIntoConstraints = false
+    return content
+  }()
+  
+  let scrollView: UIScrollView = {
+    let scroll = UIScrollView()
+    scroll.alwaysBounceVertical = true
+    scroll.autoresizingMask = UIView.AutoresizingMask.flexibleHeight
+    scroll.translatesAutoresizingMaskIntoConstraints = false
+    return scroll
+  }()
+  
+
+  
   let topView: UIView = {
       
     let topView = UIView()
     topView.translatesAutoresizingMaskIntoConstraints = false
     return topView
+    
   }()
   
   let bottomView: UIView = {
@@ -143,18 +160,20 @@ class WelcomeView: BaseView {
   }
   
   /// Assemble controls on screen
+  /// Scroll help: https://www.appcoda.com/uiscrollview-introduction/
   func constructHierarchy() {
     
-    addSubview(topView)
+    contentView.addSubview(topView)
     topView.addSubview(appLogoImageView)
-    
+
     bottomView.addSubview(emailField)
     bottomView.addSubview(passwordField)
     bottomView.addSubview(signInButton)
     bottomView.addSubview(signUpButton)
-    
-    addSubview(bottomView)
 
+    contentView.addSubview(bottomView)
+    scrollView.addSubview(contentView)
+    addSubview(scrollView)
     
   }
 
@@ -169,6 +188,8 @@ class WelcomeView: BaseView {
   /// Apply control constraints
   func activateConstraints() {
     
+    activateConstraintsScrollView()
+    activateConstraintsContentView()
     activateContraintsTopView()
     activateConstraintsAppLogo()
     activateContraintsBottomView()
@@ -179,13 +200,48 @@ class WelcomeView: BaseView {
     
   }
 
+  /// Configure scroll position
+  func activateConstraintsScrollView() {
+    
+    let leading = scrollView.leadingAnchor.constraint(equalTo: layoutMarginsGuide.leadingAnchor)
+    let trailing = scrollView.trailingAnchor.constraint(equalTo: layoutMarginsGuide.trailingAnchor)
+    let top = scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
+    let bottom = scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+    NSLayoutConstraint.activate([leading, trailing, top, bottom])
+    
+  }
+  
+  /// Configure scroll to reveal hidden content behind keyboard
+  func configureViewAfterLayout() {
+    resetScrollViewContentInset()
+  }
+  
+  /// Ensures that a scroll will reveal hidden controls or content
+  private func resetScrollViewContentInset() {
+    
+    scrollView.contentOffset = CGPoint(x: 0, y: 0)
+    scrollView.contentSize = CGSize(width: contentView.frame.width, height: contentView.frame.height * 1.5)
+
+  }
+  
+  /// Configure container view position
+  func activateConstraintsContentView() {
+    
+    let height = contentView.heightAnchor.constraint(equalTo: scrollView.heightAnchor)
+    let width = contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+    let leading = contentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor)
+    let trailing = contentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor)
+    NSLayoutConstraint.activate([height, width, leading, trailing])
+    
+  }
+  
   /// Configure the top container to fill top of screen
   func activateContraintsTopView() {
   
-    let top = topView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
-    let height = topView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.5)
-    let left = topView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor)
-    let right = topView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
+    let top = topView.topAnchor.constraint(equalTo: contentView.topAnchor)
+    let height = topView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5)
+    let left = topView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
+    let right = topView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
     NSLayoutConstraint.activate([top, height, left, right])
   
   }
@@ -193,10 +249,10 @@ class WelcomeView: BaseView {
   /// Configure the bottom container to fill bottom of screen
   func activateContraintsBottomView() {
   
-    let bottom = bottomView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
-    let height = bottomView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.5)
-    let left = bottomView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor)
-    let right = bottomView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor)
+    let bottom = bottomView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+    let height = bottomView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5)
+    let left = bottomView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
+    let right = bottomView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
     NSLayoutConstraint.activate([bottom, height, left, right])
   
   }
