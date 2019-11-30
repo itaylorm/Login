@@ -55,7 +55,7 @@ class SignUpView: BaseView {
   
   let appLogoImageView: UIImageView = {
   
-    let imageView = UIImageView(image: UIImage(named: "Welcome"))
+    let imageView = UIImageView(image: UIImage(named: "SignUp"))
     imageView.translatesAutoresizingMaskIntoConstraints = false
     imageView.contentMode = .scaleAspectFit
     return imageView
@@ -259,9 +259,14 @@ class SignUpView: BaseView {
   /// Add controls to their containers
   func constructHierarchy() {
     
+    contentView.addSubview(topView)
+    topView.addSubview(appLogoImageView)
+    
+    bottomView.addSubview(inputStack)
+    bottomView.addSubview(signUpButton)
+    
+    contentView.addSubview(bottomView)
     scrollView.addSubview(contentView)
-    contentView.addSubview(inputStack)
-    contentView.addSubview(signUpButton)
     addSubview(scrollView)
   
   }
@@ -298,6 +303,9 @@ extension SignUpView {
   
     activateConstraintsScrollView()
     activateConstraintsContentView()
+    activateContraintsTopView()
+    activateConstraintsAppLogo()
+    activateContraintsBottomView()
     activateConstraintsInputStack()
     activateConstraintsSignUpButton()
   
@@ -335,16 +343,49 @@ extension SignUpView {
       [width, leading, trailing, top, bottom])
   }
   
+  /// Configure the top container to fill top of screen
+  func activateContraintsTopView() {
+  
+    let top = topView.topAnchor.constraint(equalTo: contentView.topAnchor)
+    let height = topView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5)
+    let left = topView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
+    let right = topView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+    NSLayoutConstraint.activate([top, height, left, right])
+  
+  }
+  
+  /// Apply logo constraints to position on screen
+  func activateConstraintsAppLogo() {
+    
+    let top = appLogoImageView.topAnchor.constraint(equalTo: topView.topAnchor, constant: 25)
+    let centerX = appLogoImageView.centerXAnchor.constraint(equalTo: topView.centerXAnchor)
+    let height = appLogoImageView.heightAnchor.constraint(equalTo: topView.heightAnchor, multiplier: 0.8)
+    let width = appLogoImageView.widthAnchor.constraint(equalTo: topView.widthAnchor, multiplier: 0.8)
+    NSLayoutConstraint.activate([top, centerX, height, width])
+    
+  }
+  
+  /// Configure the bottom container to fill bottom of screen
+  func activateContraintsBottomView() {
+  
+    let bottom = bottomView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+    let height = bottomView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5)
+    let left = bottomView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
+    let right = bottomView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+    NSLayoutConstraint.activate([bottom, height, left, right])
+  
+  }
+  
   /// Configure the data entry stack container position
   func activateConstraintsInputStack() {
     
     inputStack.translatesAutoresizingMaskIntoConstraints = false
     let leading = inputStack.leadingAnchor
-      .constraint(equalTo: contentView.leadingAnchor)
+      .constraint(equalTo: bottomView.leadingAnchor)
     let trailing = inputStack.trailingAnchor
-      .constraint(equalTo: contentView.trailingAnchor)
+      .constraint(equalTo: bottomView.trailingAnchor)
     let top = inputStack.topAnchor
-      .constraint(equalTo: contentView.topAnchor)
+      .constraint(equalTo: bottomView.topAnchor)
     NSLayoutConstraint.activate(
       [leading, trailing, top])
     
