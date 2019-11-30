@@ -22,6 +22,10 @@ class SignUpView: BaseView {
   
   let scrollView: UIScrollView = {
     let scroll = UIScrollView()
+    scroll.alwaysBounceVertical = true
+    scroll.showsVerticalScrollIndicator = false
+    scroll.showsHorizontalScrollIndicator = false
+    scroll.autoresizingMask = UIView.AutoresizingMask.flexibleHeight
     scroll.translatesAutoresizingMaskIntoConstraints = false
     return scroll
   }()
@@ -329,17 +333,9 @@ class SignUpView: BaseView {
   /// Scroll
   private func resetScrollViewContentInset() {
     
-    let scrollViewBounds = scrollView.bounds
-    let contentViewHeight = CGFloat(330.0)
-
-    var scrollViewInsets = UIEdgeInsets.zero
-    scrollViewInsets.top = scrollViewBounds.size.height / 2.0;
-    scrollViewInsets.top -= contentViewHeight / 2.0;
-
-    scrollViewInsets.bottom = scrollViewBounds.size.height / 2.0
-    scrollViewInsets.bottom -= contentViewHeight / 2.0
-
-    scrollView.contentInset = scrollViewInsets
+    scrollView.contentOffset = CGPoint(x: 0, y: 0)
+    scrollView.contentSize = CGSize(width: contentView.frame.width, height: contentView.frame.height * 1.5)
+    
   }
   
   /// Configure scroll position

@@ -37,6 +37,8 @@ class WelcomeView: BaseView {
   let scrollView: UIScrollView = {
     let scroll = UIScrollView()
     scroll.alwaysBounceVertical = true
+    scroll.showsVerticalScrollIndicator = false
+    scroll.showsHorizontalScrollIndicator = false
     scroll.autoresizingMask = UIView.AutoresizingMask.flexibleHeight
     scroll.translatesAutoresizingMaskIntoConstraints = false
     return scroll
