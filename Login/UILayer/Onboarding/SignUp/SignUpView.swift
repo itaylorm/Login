@@ -188,7 +188,6 @@ class SignUpView: BaseView {
     button.titleLabel?.font = Button.font
     button.layer.borderWidth = Button.borderWidth
     button.layer.cornerRadius = Button.cornerRadius
-    button.layer.borderColor = Button.borderColor
     button.layer.backgroundColor = Button.backgroundColor
     button.translatesAutoresizingMaskIntoConstraints = false
     button.heightAnchor.constraint(equalToConstant: Button.height).isActive = true

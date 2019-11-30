@@ -15,7 +15,7 @@ struct LightTheme: Theme {
   let secondaryTint: UIColor = .systemOrange
   let iconTint: UIColor = .systemBlue
   
-  let backgroundColor: UIColor = .white
+  let backgroundColor: UIColor = .systemBackground
   let separatorColor: UIColor = .lightGray
   let selectionColor: UIColor = .init(red: 236/255, green: 236/255, blue: 236/255, alpha: 1)
 

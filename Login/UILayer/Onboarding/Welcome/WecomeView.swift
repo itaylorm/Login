@@ -44,7 +44,6 @@ class WelcomeView: BaseView {
     button.titleLabel?.font = Button.font
     button.layer.borderWidth = Button.borderWidth
     button.layer.cornerRadius = Button.cornerRadius
-    button.layer.borderColor = Button.borderColor
     button.layer.backgroundColor = Button.backgroundColor
     button.heightAnchor.constraint(equalToConstant: Button.height).isActive = true
     button.widthAnchor.constraint(equalToConstant: Button.width).isActive = true
