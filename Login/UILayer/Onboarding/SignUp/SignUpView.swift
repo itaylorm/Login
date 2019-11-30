@@ -318,21 +318,11 @@ class SignUpView: BaseView {
   /// Configure text fields with bottom lines
   private func formatTextFields() {
     
-    formatTextField(field: self.fullNameField)
-    formatTextField(field: self.nicknameField)
-    formatTextField(field: self.emailField)
-    formatTextField(field: self.mobileNumberField)
-    formatTextField(field: self.passwordField)
-    
-  }
-  
-  /// Configure passed text field appearance
-  /// - Parameter field: Passed text field to format
-  private func formatTextField(field: UITextField) {
-    
-    field.placeHolderColor = UIColor.gray
-    field.addPadding()
-    field.bottomBorderColor = Color.primary
+    fullNameField.format()
+    nicknameField.format()
+    emailField.format()
+    mobileNumberField.format()
+    passwordField.format()
     
   }
   
