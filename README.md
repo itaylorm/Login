@@ -30,3 +30,8 @@ Now have a UITextFieldExtensions class that handles formatting text fields to ha
 
 # Color
 Also created primary color in struct Color which matches the logo and Icon colors
+
+# Open bug
+Get an error as follows when switch to another application: "Can't end BackgroundTask: no background task exists with identifier 1 (0x1), or it may have already been ended. Break in UIApplicationEndBackgroundTaskError() to debug."
+Isn't causing a crash, will fix
+
