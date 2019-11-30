@@ -28,6 +28,21 @@ class WelcomeView: BaseView {
   
   // MARK: Controls
   
+  let topView: UIView = {
+      
+    let topView = UIView()
+    topView.translatesAutoresizingMaskIntoConstraints = false
+    return topView
+    
+  }()
+  
+  let bottomView: UIView = {
+      
+    let bottomView = UIView()
+    bottomView.translatesAutoresizingMaskIntoConstraints = false
+    return bottomView
+  }()
+  
   let contentView: UIView = {
     let content = UIView()
     content.translatesAutoresizingMaskIntoConstraints = false
@@ -42,23 +57,6 @@ class WelcomeView: BaseView {
     scroll.autoresizingMask = UIView.AutoresizingMask.flexibleHeight
     scroll.translatesAutoresizingMaskIntoConstraints = false
     return scroll
-  }()
-  
-
-  
-  let topView: UIView = {
-      
-    let topView = UIView()
-    topView.translatesAutoresizingMaskIntoConstraints = false
-    return topView
-    
-  }()
-  
-  let bottomView: UIView = {
-      
-    let bottomView = UIView()
-    bottomView.translatesAutoresizingMaskIntoConstraints = false
-    return bottomView
   }()
   
   let appLogoImageView: UIImageView = {
@@ -187,6 +185,11 @@ class WelcomeView: BaseView {
   
   }
   
+}
+
+/// Constraints
+extension WelcomeView {
+  
   /// Apply control constraints
   func activateConstraints() {
     
@@ -211,19 +214,6 @@ class WelcomeView: BaseView {
     let bottom = scrollView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
     NSLayoutConstraint.activate([leading, trailing, top, bottom])
     
-  }
-  
-  /// Configure scroll to reveal hidden content behind keyboard
-  func configureViewAfterLayout() {
-    resetScrollViewContentInset()
-  }
-  
-  /// Ensures that a scroll will reveal hidden controls or content
-  private func resetScrollViewContentInset() {
-    
-    scrollView.contentOffset = CGPoint(x: 0, y: 0)
-    scrollView.contentSize = CGSize(width: contentView.frame.width, height: contentView.frame.height * 1.5)
-
   }
   
   /// Configure container view position
@@ -392,6 +382,24 @@ class WelcomeView: BaseView {
     top.isActive = true
     signUpTopConstraint = top
     
+  }
+  
+}
+
+/// Scrollingd
+extension WelcomeView {
+  
+  /// Configure scroll to reveal hidden content behind keyboard
+  func configureViewAfterLayout() {
+    resetScrollViewContentInset()
+  }
+  
+  /// Ensures that a scroll will reveal hidden controls or content
+  private func resetScrollViewContentInset() {
+    
+    scrollView.contentOffset = CGPoint(x: 0, y: 0)
+    scrollView.contentSize = CGSize(width: contentView.frame.width, height: contentView.frame.height * 1.5)
+
   }
   
 }

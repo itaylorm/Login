@@ -20,6 +20,23 @@ class SignUpView: BaseView {
   
   var hierarchyNotReady = true
   
+  // MARK: Controls
+  
+  let topView: UIView = {
+      
+    let topView = UIView()
+    topView.translatesAutoresizingMaskIntoConstraints = false
+    return topView
+    
+  }()
+  
+  let bottomView: UIView = {
+      
+    let bottomView = UIView()
+    bottomView.translatesAutoresizingMaskIntoConstraints = false
+    return bottomView
+  }()
+  
   let scrollView: UIScrollView = {
     let scroll = UIScrollView()
     scroll.alwaysBounceVertical = true
@@ -34,6 +51,15 @@ class SignUpView: BaseView {
     let content = UIView()
     content.translatesAutoresizingMaskIntoConstraints = false
     return content
+  }()
+  
+  let appLogoImageView: UIImageView = {
+  
+    let imageView = UIImageView(image: UIImage(named: "Welcome"))
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    imageView.contentMode = .scaleAspectFit
+    return imageView
+    
   }()
   
   lazy var inputStack: UIStackView = {
@@ -212,60 +238,6 @@ class SignUpView: BaseView {
     super.init(frame: frame)
     
   }
-  
-  /// Configure fields with view model
-  func bindFieldsToViewModel() {
-    bindFullNameField()
-    bindNicknameField()
-    bindEmailField()
-    bindMobileNumberField()
-    bindPasswordField()
-  }
-
-  /// Configure full name with view model
-  func bindFullNameField() {
-    fullNameField.rx.text
-      .asDriver()
-      .map { $0 ?? "" }
-      .drive(viewModel.nameInput)
-      .disposed(by: disposeBag)
-  }
-
-  /// Configure nickname with view model
-  func bindNicknameField() {
-    nicknameField.rx.text
-      .asDriver()
-      .map { $0 ?? "" }
-      .drive(viewModel.nicknameInput)
-      .disposed(by: disposeBag)
-  }
-
-  /// Configure email with view model
-  func bindEmailField() {
-    emailField.rx.text
-      .asDriver()
-      .map { $0 ?? "" }
-      .drive(viewModel.emailInput)
-      .disposed(by: disposeBag)
-  }
-
-  /// Configure mobile number with view model
-  func bindMobileNumberField() {
-    mobileNumberField.rx.text
-      .asDriver()
-      .map { $0 ?? "" }
-      .drive(viewModel.mobileNumberInput)
-      .disposed(by: disposeBag)
-  }
-
-  /// Configure password with view model
-  func bindPasswordField() {
-    passwordField.rx.text
-      .asDriver()
-      .map { $0 ?? "" }
-      .drive(viewModel.passwordInput)
-      .disposed(by: disposeBag)
-  }
 
   /// Triggers when window appears
   override func didMoveToWindow() {
@@ -281,6 +253,7 @@ class SignUpView: BaseView {
     wireController()
 
     hierarchyNotReady = false
+    
   }
 
   /// Add controls to their containers
@@ -290,16 +263,6 @@ class SignUpView: BaseView {
     contentView.addSubview(inputStack)
     contentView.addSubview(signUpButton)
     addSubview(scrollView)
-  
-  }
-
-  // Position controls on the screen
-  private func activateConstraints() {
-  
-    activateConstraintsScrollView()
-    activateConstraintsContentView()
-    activateConstraintsInputStack()
-    activateConstraintsSignUpButton()
   
   }
 
@@ -313,11 +276,6 @@ class SignUpView: BaseView {
     endEditing(true)
     viewModel.signUp()
   }
-
-  /// Trigger layout of content when scrolls
-  func configureViewAfterLayout() {
-    resetScrollViewContentInset()
-  }
   
   /// Configure text fields with bottom lines
   private func formatTextFields() {
@@ -329,13 +287,20 @@ class SignUpView: BaseView {
     passwordField.format()
     
   }
+
+}
+
+/// Constraints
+extension SignUpView {
   
-  /// Scroll
-  private func resetScrollViewContentInset() {
-    
-    scrollView.contentOffset = CGPoint(x: 0, y: 0)
-    scrollView.contentSize = CGSize(width: contentView.frame.width, height: contentView.frame.height * 1.5)
-    
+  // Position controls on the screen
+  fileprivate func activateConstraints() {
+  
+    activateConstraintsScrollView()
+    activateConstraintsContentView()
+    activateConstraintsInputStack()
+    activateConstraintsSignUpButton()
+  
   }
   
   /// Configure scroll position
@@ -397,6 +362,82 @@ class SignUpView: BaseView {
     
   }
   
+}
+/// Binding fields
+extension SignUpView {
+  
+  /// Configure fields with view model
+  func bindFieldsToViewModel() {
+    bindFullNameField()
+    bindNicknameField()
+    bindEmailField()
+    bindMobileNumberField()
+    bindPasswordField()
+  }
+
+  /// Configure full name with view model
+  func bindFullNameField() {
+    fullNameField.rx.text
+      .asDriver()
+      .map { $0 ?? "" }
+      .drive(viewModel.nameInput)
+      .disposed(by: disposeBag)
+  }
+
+  /// Configure nickname with view model
+  func bindNicknameField() {
+    nicknameField.rx.text
+      .asDriver()
+      .map { $0 ?? "" }
+      .drive(viewModel.nicknameInput)
+      .disposed(by: disposeBag)
+  }
+
+  /// Configure email with view model
+  func bindEmailField() {
+    emailField.rx.text
+      .asDriver()
+      .map { $0 ?? "" }
+      .drive(viewModel.emailInput)
+      .disposed(by: disposeBag)
+  }
+
+  /// Configure mobile number with view model
+  func bindMobileNumberField() {
+    mobileNumberField.rx.text
+      .asDriver()
+      .map { $0 ?? "" }
+      .drive(viewModel.mobileNumberInput)
+      .disposed(by: disposeBag)
+  }
+
+  /// Configure password with view model
+  func bindPasswordField() {
+    passwordField.rx.text
+      .asDriver()
+      .map { $0 ?? "" }
+      .drive(viewModel.passwordInput)
+      .disposed(by: disposeBag)
+  }
+  
+}
+
+/// Scrolling methods
+extension SignUpView {
+  
+  /// Trigger layout of content when scrolls
+  func configureViewAfterLayout() {
+    resetScrollViewContentInset()
+  }
+  
+  /// Scroll
+  private func resetScrollViewContentInset() {
+    
+    scrollView.contentOffset = CGPoint(x: 0, y: 0)
+    scrollView.contentSize = CGSize(width: contentView.frame.width, height: contentView.frame.height * 1.5)
+    
+  }
+  
   /// Scroll
   func moveContentForDismissedKeyboard() {
     resetScrollViewContentInset()
@@ -410,5 +451,5 @@ class SignUpView: BaseView {
     scrollView.contentInset = insets
     
   }
-
+  
 }
