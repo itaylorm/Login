@@ -386,7 +386,7 @@ extension WelcomeView {
   
 }
 
-/// Scrollingd
+/// Scrolling
 extension WelcomeView {
   
   /// Configure scroll to reveal hidden content behind keyboard

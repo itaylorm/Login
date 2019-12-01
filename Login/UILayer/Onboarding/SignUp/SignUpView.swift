@@ -20,6 +20,11 @@ class SignUpView: BaseView {
   
   var hierarchyNotReady = true
   
+  // The dynamic constraints for controls that
+  // change based upon orientation
+  var bottomViewHeightConstraint: NSLayoutConstraint?
+  var inputStackTopConstraint: NSLayoutConstraint?
+  
   // MARK: Controls
   
   let topView: UIView = {
@@ -72,6 +77,7 @@ class SignUpView: BaseView {
     ])
     stack.axis = .vertical
     stack.spacing = 10
+    stack.translatesAutoresizingMaskIntoConstraints = false
     return stack
   }()
 
@@ -239,12 +245,27 @@ class SignUpView: BaseView {
     
   }
 
+  deinit {
+    NotificationCenter.default.removeObserver(self,
+      name: UIDevice.orientationDidChangeNotification, object: nil)
+  }
+  
+  /// Handles any actions associated with rotating
+  @objc func rotated() {
+    configureTopView()
+    configureBottomViewHeightContraint()
+    configureInputStackTopContraint()
+  }
+  
   /// Triggers when window appears
   override func didMoveToWindow() {
     super.didMoveToWindow()
     guard hierarchyNotReady else {
       return
     }
+    
+    NotificationCenter.default.addObserver(self, selector: #selector(self.rotated),
+          name: UIDevice.orientationDidChangeNotification, object: nil)
     
     formatTextFields()
     constructHierarchy()
@@ -354,10 +375,24 @@ extension SignUpView {
   
   }
   
+  /// Makes the top graphic visible or invisible
+  /// Visible on portrait, invisible on landscape
+  func configureTopView() {
+    
+    if UIDevice.current.orientation.isPortrait {
+      topView.isHidden = false
+      appLogoImageView.isHidden = false
+    } else {
+      topView.isHidden = true
+      appLogoImageView.isHidden = true
+    }
+  }
   /// Apply logo constraints to position on screen
   func activateConstraintsAppLogo() {
     
-    let top = appLogoImageView.topAnchor.constraint(equalTo: topView.topAnchor, constant: 25)
+    configureTopView()
+    
+    let top = appLogoImageView.topAnchor.constraint(equalTo: topView.topAnchor, constant: 10)
     let centerX = appLogoImageView.centerXAnchor.constraint(equalTo: topView.centerXAnchor)
     let height = appLogoImageView.heightAnchor.constraint(equalTo: topView.heightAnchor, multiplier: 0.8)
     let width = appLogoImageView.widthAnchor.constraint(equalTo: topView.widthAnchor, multiplier: 0.8)
@@ -365,29 +400,66 @@ extension SignUpView {
     
   }
   
+  /// Handles the appropriate bottom view setting upon rotate
+  func configureBottomViewHeightContraint() {
+    
+    if bottomViewHeightConstraint != nil {
+      bottomViewHeightConstraint?.isActive = false
+      bottomViewHeightConstraint = nil
+    }
+    
+    var height: NSLayoutConstraint
+    if UIDevice.current.orientation.isPortrait {
+      height = bottomView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5)
+    } else {
+      height = bottomView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 1.0)
+    }
+    
+    height.isActive = true
+    bottomViewHeightConstraint = height
+    
+  }
+  
   /// Configure the bottom container to fill bottom of screen
   func activateContraintsBottomView() {
   
+    configureBottomViewHeightContraint()
     let bottom = bottomView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-    let height = bottomView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5)
     let left = bottomView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
     let right = bottomView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
-    NSLayoutConstraint.activate([bottom, height, left, right])
+    NSLayoutConstraint.activate([bottom, left, right])
   
+  }
+  
+  /// Handles the appropriate bottom view setting upon rotate
+  func configureInputStackTopContraint() {
+    
+    if inputStackTopConstraint != nil {
+      inputStackTopConstraint?.isActive = false
+      inputStackTopConstraint = nil
+    }
+    
+    var top: NSLayoutConstraint
+    if UIDevice.current.orientation.isPortrait {
+      top = inputStack.topAnchor.constraint(equalTo: bottomView.topAnchor, constant: 0)
+    } else {
+      top = inputStack.topAnchor.constraint(equalTo: bottomView.topAnchor, constant: 20)
+    }
+    
+    top.isActive = true
+    inputStackTopConstraint = top
+    
   }
   
   /// Configure the data entry stack container position
   func activateConstraintsInputStack() {
     
-    inputStack.translatesAutoresizingMaskIntoConstraints = false
-    let leading = inputStack.leadingAnchor
-      .constraint(equalTo: bottomView.leadingAnchor)
-    let trailing = inputStack.trailingAnchor
-      .constraint(equalTo: bottomView.trailingAnchor)
-    let top = inputStack.topAnchor
-      .constraint(equalTo: bottomView.topAnchor)
-    NSLayoutConstraint.activate(
-      [leading, trailing, top])
+    configureInputStackTopContraint()
+    
+    let leading = inputStack.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor)
+    let trailing = inputStack.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor)
+
+    NSLayoutConstraint.activate([leading, trailing])
     
   }
 
