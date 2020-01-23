@@ -17,12 +17,12 @@ class KeychainItem {
   let itemService = kSecAttrService as String
 
   // MARK: - Methods
-  
+
   /// Converts to key value pairs
   func asDictionary() -> CFDictionary {
     let item: [String: AnyObject] = [itemClass: kSecClassGenericPassword,
                                      itemService: service]
     return item as CFDictionary
   }
-  
+
 }

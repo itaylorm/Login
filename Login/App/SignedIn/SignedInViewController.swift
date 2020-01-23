@@ -10,5 +10,5 @@ import Foundation
 
 /// Handles a successful sign in process
 class SignedInViewController: BaseViewController {
-  
+
 }

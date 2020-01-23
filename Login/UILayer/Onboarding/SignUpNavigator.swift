@@ -11,8 +11,8 @@ import Foundation
 /// A type following this protocol exposes method(s)
 /// associated with signing up a new user
 protocol SignUpNavigator {
-  
+
   /// Takes user to the sign up view
-  func SignUp()
-  
+  func signUp()
+
 }

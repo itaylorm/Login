@@ -11,25 +11,25 @@ import UIKit
 
 /// First screen that loads
 class LaunchView: BaseView {
-  
+
   // MARK: Properties
-  
+
   let viewModel: LaunchViewModel
-  
+
   // MARK: Methods
-  
+
   /// Configure settings associated with view
   /// - Parameters:
   ///   - frame: View information
   ///   - viewModel: Reference to associated LaunchViewModel
   init(frame: CGRect = .zero, viewModel: LaunchViewModel) {
-    
+
     self.viewModel = viewModel
     super.init(frame: frame)
-    
+
     //backgroundColor = Color.primary
     viewModel.loadUserSession()
-    
+
   }
-  
+
 }

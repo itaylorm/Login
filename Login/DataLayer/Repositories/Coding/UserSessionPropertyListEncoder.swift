@@ -17,12 +17,20 @@ public class UserSessionPropertyListCoder: UserSessionCoding {
   /// Convert UserSession to Data
   /// - Parameter userSession: User login information to convert
   func encode(userSession: UserSession) -> Data {
+
+    // swiftlint:disable:next force_try
     return try! PropertyListEncoder().encode(userSession)
+    // swiftlint:enable force_try
+
   }
 
   /// Convert Data into User Session
   /// - Parameter data: Encoded User session to convert
   func decode(data: Data) -> UserSession {
+
+    // swiftlint:disable:next force_try
     return try! PropertyListDecoder().decode(UserSession.self, from: data)
+    // swiftlint:enable force_try
+
   }
 }

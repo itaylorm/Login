@@ -12,7 +12,7 @@ import RxCocoa
 
 /// Generates view model to handle display of associated launch view model
 protocol LaunchViewModelFactory {
-  
+
   /// Returns generated associated view model
   func makeLaunchViewModel() -> LaunchViewModel
 
@@ -20,30 +20,27 @@ protocol LaunchViewModelFactory {
 
 /// Handles launch screen
 class LaunchViewController: BaseViewController {
-  
+
   // MARK: - Properties
-  
+
   let viewModel: LaunchViewModel
   let disposeBag = DisposeBag()
-  
+
   /// Configures with passed view model
   /// - Parameter launchViewModelFactory: Provides the associated view model
   init(launchViewModelFactory: LaunchViewModelFactory) {
-    
+
     self.viewModel = launchViewModelFactory.makeLaunchViewModel()
-    
     super.init()
-    
+
   }
-  
+
   /// Display associated view model's view
   public override func loadView() {
-    
-    super.viewDidLoad()
-    
-    view = LaunchView(viewModel: viewModel)
-    
-  }
-  
-}
 
+    super.viewDidLoad()
+    view = LaunchView(viewModel: viewModel)
+
+  }
+
+}

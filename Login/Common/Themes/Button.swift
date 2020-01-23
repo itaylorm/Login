@@ -11,7 +11,7 @@ import UIKit
 /// Button layer properties cannot be set with themes
 /// The settings to use for these are here
 struct Button {
-  
+
   static let height: CGFloat = 50
   static let width: CGFloat = 150
   static let font: UIFont = .boldSystemFont(ofSize: 18)
@@ -19,5 +19,5 @@ struct Button {
   static let cornerRadius: CGFloat = 25
   static let borderColor = UIColor.white.cgColor
   static let backgroundColor = Color.primary.cgColor
-  
+
 }

@@ -23,5 +23,5 @@ class KeychainItemQuery: KeychainItem {
                                       returnData: kCFBooleanTrue]
     return query as CFDictionary
   }
-  
+
 }

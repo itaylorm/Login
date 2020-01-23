@@ -12,36 +12,36 @@ import RxSwift
 
 /// Handles appearance of sign up UI
 class SignUpView: BaseView {
-  
+
   // MARK: Properties
-  
+
   let viewModel: SignUpViewModel
   let disposeBag = DisposeBag()
-  
+
   var hierarchyNotReady = true
-  
+
   // The dynamic constraints for controls that
   // change based upon orientation
   var bottomViewHeightConstraint: NSLayoutConstraint?
   var inputStackTopConstraint: NSLayoutConstraint?
-  
+
   // MARK: Controls
-  
+
   let topView: UIView = {
-      
+
     let topView = UIView()
     topView.translatesAutoresizingMaskIntoConstraints = false
     return topView
-    
+
   }()
-  
+
   let bottomView: UIView = {
-      
+
     let bottomView = UIView()
     bottomView.translatesAutoresizingMaskIntoConstraints = false
     return bottomView
   }()
-  
+
   let scrollView: UIScrollView = {
     let scroll = UIScrollView()
     scroll.alwaysBounceVertical = true
@@ -51,22 +51,22 @@ class SignUpView: BaseView {
     scroll.translatesAutoresizingMaskIntoConstraints = false
     return scroll
   }()
-  
+
   let contentView: UIView = {
     let content = UIView()
     content.translatesAutoresizingMaskIntoConstraints = false
     return content
   }()
-  
+
   let appLogoImageView: UIImageView = {
-  
+
     let imageView = UIImageView(image: UIImage(named: "SignUp"))
     imageView.translatesAutoresizingMaskIntoConstraints = false
     imageView.contentMode = .scaleAspectFit
     return imageView
-    
+
   }()
-  
+
   lazy var inputStack: UIStackView = {
     let stack = UIStackView(arrangedSubviews: [
       fullNameInputStack,
@@ -95,7 +95,7 @@ class SignUpView: BaseView {
     imageView.widthAnchor
       .constraint(equalToConstant: 40)
       .isActive = true
-    imageView.image = UIImage(named:"person_icon")?.withRenderingMode(.alwaysTemplate)
+    imageView.image = UIImage(named: "person_icon")?.withRenderingMode(.alwaysTemplate)
     imageView.contentMode = .center
     return imageView
   }()
@@ -122,7 +122,7 @@ class SignUpView: BaseView {
     imageView.widthAnchor
       .constraint(equalToConstant: 40)
       .isActive = true
-    imageView.image = UIImage(named:"tag_icon")?.withRenderingMode(.alwaysTemplate)
+    imageView.image = UIImage(named: "tag_icon")?.withRenderingMode(.alwaysTemplate)
     imageView.contentMode = .center
     return imageView
   }()
@@ -149,7 +149,7 @@ class SignUpView: BaseView {
     imageView.widthAnchor
       .constraint(equalToConstant: 40)
       .isActive = true
-    imageView.image = UIImage(named:"email_icon")?.withRenderingMode(.alwaysTemplate)
+    imageView.image = UIImage(named: "email_icon")?.withRenderingMode(.alwaysTemplate)
     imageView.contentMode = .center
     return imageView
   }()
@@ -177,7 +177,7 @@ class SignUpView: BaseView {
     imageView.widthAnchor
       .constraint(equalToConstant: 40)
       .isActive = true
-    imageView.image = UIImage(named:"mobile_icon")?.withRenderingMode(.alwaysTemplate)
+    imageView.image = UIImage(named: "mobile_icon")?.withRenderingMode(.alwaysTemplate)
     imageView.contentMode = .center
     return imageView
   }()
@@ -205,7 +205,7 @@ class SignUpView: BaseView {
     imageView.widthAnchor
       .constraint(equalToConstant: 40)
       .isActive = true
-    imageView.image = UIImage(named:"password_icon")?.withRenderingMode(.alwaysTemplate)
+    imageView.image = UIImage(named: "password_icon")?.withRenderingMode(.alwaysTemplate)
     imageView.contentMode = .center
     return imageView
   }()
@@ -218,7 +218,7 @@ class SignUpView: BaseView {
   }()
 
   let signUpButton: UIButton = {
-    
+
     let button = UIButton(type: .custom)
     button.setTitle("Sign Up", for: .normal)
     button.titleLabel?.font = Button.font
@@ -229,44 +229,44 @@ class SignUpView: BaseView {
     button.heightAnchor.constraint(equalToConstant: Button.height).isActive = true
     button.widthAnchor.constraint(equalToConstant: Button.width).isActive = true
     return button
-    
+
   }()
-  
+
   // MARK: Methods
-  
+
   /// Configures view
   /// - Parameters:
   ///   - frame: Bounds of the view
   ///   - viewModel: Associated view model
   init(frame: CGRect = .zero, viewModel: SignUpViewModel) {
-    
+
     self.viewModel = viewModel
     super.init(frame: frame)
-    
+
   }
 
   deinit {
     NotificationCenter.default.removeObserver(self,
       name: UIDevice.orientationDidChangeNotification, object: nil)
   }
-  
+
   /// Handles any actions associated with rotating
   @objc func rotated() {
     configureTopView()
     configureBottomViewHeightContraint()
     configureInputStackTopContraint()
   }
-  
+
   /// Triggers when window appears
   override func didMoveToWindow() {
     super.didMoveToWindow()
     guard hierarchyNotReady else {
       return
     }
-    
+
     NotificationCenter.default.addObserver(self, selector: #selector(self.rotated),
           name: UIDevice.orientationDidChangeNotification, object: nil)
-    
+
     formatTextFields()
     constructHierarchy()
 
@@ -274,22 +274,22 @@ class SignUpView: BaseView {
     wireController()
 
     hierarchyNotReady = false
-    
+
   }
 
   /// Add controls to their containers
   func constructHierarchy() {
-    
+
     contentView.addSubview(topView)
     topView.addSubview(appLogoImageView)
-    
+
     bottomView.addSubview(inputStack)
     bottomView.addSubview(signUpButton)
-    
+
     contentView.addSubview(bottomView)
     scrollView.addSubview(contentView)
     addSubview(scrollView)
-  
+
   }
 
   /// Trigger sign up when user clicks sign up button
@@ -302,26 +302,26 @@ class SignUpView: BaseView {
     endEditing(true)
     viewModel.signUp()
   }
-  
+
   /// Configure text fields with bottom lines
   private func formatTextFields() {
-    
+
     fullNameField.format()
     nicknameField.format()
     emailField.format()
     mobileNumberField.format()
     passwordField.format()
-    
+
   }
 
 }
 
 /// Constraints
 extension SignUpView {
-  
+
   // Position controls on the screen
   fileprivate func activateConstraints() {
-  
+
     activateConstraintsScrollView()
     activateConstraintsContentView()
     activateContraintsTopView()
@@ -329,9 +329,9 @@ extension SignUpView {
     activateContraintsBottomView()
     activateConstraintsInputStack()
     activateConstraintsSignUpButton()
-  
+
   }
-  
+
   /// Configure scroll position
   func activateConstraintsScrollView() {
 
@@ -346,10 +346,10 @@ extension SignUpView {
     NSLayoutConstraint.activate(
       [leading, trailing, top, bottom])
   }
-  
+
   /// Configure container view position
   func activateConstraintsContentView() {
-    
+
     let width = contentView.widthAnchor
       .constraint(equalTo: scrollView.widthAnchor)
     let leading = contentView.leadingAnchor
@@ -363,22 +363,22 @@ extension SignUpView {
     NSLayoutConstraint.activate(
       [width, leading, trailing, top, bottom])
   }
-  
+
   /// Configure the top container to fill top of screen
   func activateContraintsTopView() {
-  
+
     let top = topView.topAnchor.constraint(equalTo: contentView.topAnchor)
     let height = topView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5)
     let left = topView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
     let right = topView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
     NSLayoutConstraint.activate([top, height, left, right])
-  
+
   }
-  
+
   /// Makes the top graphic visible or invisible
   /// Visible on portrait, invisible on landscape
   func configureTopView() {
-    
+
     if UIDevice.current.orientation.isPortrait {
       topView.isHidden = false
       appLogoImageView.isHidden = false
@@ -389,96 +389,96 @@ extension SignUpView {
   }
   /// Apply logo constraints to position on screen
   func activateConstraintsAppLogo() {
-    
+
     configureTopView()
-    
+
     let top = appLogoImageView.topAnchor.constraint(equalTo: topView.topAnchor, constant: 10)
     let centerX = appLogoImageView.centerXAnchor.constraint(equalTo: topView.centerXAnchor)
     let height = appLogoImageView.heightAnchor.constraint(equalTo: topView.heightAnchor, multiplier: 0.8)
     let width = appLogoImageView.widthAnchor.constraint(equalTo: topView.widthAnchor, multiplier: 0.8)
     NSLayoutConstraint.activate([top, centerX, height, width])
-    
+
   }
-  
+
   /// Handles the appropriate bottom view setting upon rotate
   func configureBottomViewHeightContraint() {
-    
+
     if bottomViewHeightConstraint != nil {
       bottomViewHeightConstraint?.isActive = false
       bottomViewHeightConstraint = nil
     }
-    
+
     var height: NSLayoutConstraint
     if UIDevice.current.orientation.isPortrait {
       height = bottomView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.5)
     } else {
       height = bottomView.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 1.0)
     }
-    
+
     height.isActive = true
     bottomViewHeightConstraint = height
-    
+
   }
-  
+
   /// Configure the bottom container to fill bottom of screen
   func activateContraintsBottomView() {
-  
+
     configureBottomViewHeightContraint()
     let bottom = bottomView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
     let left = bottomView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor)
     let right = bottomView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
     NSLayoutConstraint.activate([bottom, left, right])
-  
+
   }
-  
+
   /// Handles the appropriate bottom view setting upon rotate
   func configureInputStackTopContraint() {
-    
+
     if inputStackTopConstraint != nil {
       inputStackTopConstraint?.isActive = false
       inputStackTopConstraint = nil
     }
-    
+
     var top: NSLayoutConstraint
     if UIDevice.current.orientation.isPortrait {
       top = inputStack.topAnchor.constraint(equalTo: bottomView.topAnchor, constant: 0)
     } else {
       top = inputStack.topAnchor.constraint(equalTo: bottomView.topAnchor, constant: 20)
     }
-    
+
     top.isActive = true
     inputStackTopConstraint = top
-    
+
   }
-  
+
   /// Configure the data entry stack container position
   func activateConstraintsInputStack() {
-    
+
     configureInputStackTopContraint()
-    
+
     let leading = inputStack.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor)
     let trailing = inputStack.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor)
 
     NSLayoutConstraint.activate([leading, trailing])
-    
+
   }
 
   /// Position sign up button
   func activateConstraintsSignUpButton() {
-    
+
     let centerX = signUpButton.centerXAnchor.constraint(equalTo: inputStack.centerXAnchor)
     let top = signUpButton.topAnchor
       .constraint(equalTo: inputStack.bottomAnchor, constant: 20)
     let bottom = contentView.bottomAnchor
       .constraint(equalTo: signUpButton.bottomAnchor, constant: 20)
     NSLayoutConstraint.activate([centerX, top, bottom])
-    
+
   }
-  
+
 }
 /// Binding fields
 extension SignUpView {
-  
+
   /// Configure fields with view model
   func bindFieldsToViewModel() {
     bindFullNameField()
@@ -532,37 +532,37 @@ extension SignUpView {
       .drive(viewModel.passwordInput)
       .disposed(by: disposeBag)
   }
-  
+
 }
 
 /// Scrolling methods
 extension SignUpView {
-  
+
   /// Trigger layout of content when scrolls
   func configureViewAfterLayout() {
     resetScrollViewContentInset()
   }
-  
+
   /// Scroll
   private func resetScrollViewContentInset() {
-    
+
     scrollView.contentOffset = CGPoint(x: 0, y: 0)
     scrollView.contentSize = CGSize(width: contentView.frame.width, height: contentView.frame.height * 1.5)
-    
+
   }
-  
+
   /// Scroll
   func moveContentForDismissedKeyboard() {
     resetScrollViewContentInset()
   }
-  
+
   /// Ensure that data entry controls are visible when scrolling
   func moveContent(forKeyboardFrame keyboardFrame: CGRect) {
-    
+
     var insets = scrollView.contentInset
     insets.bottom = keyboardFrame.height
     scrollView.contentInset = insets
-    
+
   }
-  
+
 }

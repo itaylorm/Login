@@ -12,13 +12,13 @@ import UIKit
 /// the entire application
 /// Based upon this article: https://basememara.com/protocol-oriented-themes-for-ios-apps/
 protocol Theme {
-  
+
   var primary: UIColor { get}
-  
+
   var tint: UIColor { get }
   var secondaryTint: UIColor { get }
   var iconTint: UIColor { get }
-  
+
   var backgroundColor: UIColor { get }
   var separatorColor: UIColor { get }
   var selectionColor: UIColor { get }
@@ -31,15 +31,15 @@ protocol Theme {
   var barStyle: UIBarStyle { get }
 
   var borderColor: CGColor { get }
-  
+
 }
 
 extension Theme {
-  
+
   func apply(for application: UIApplication) {
 
     application.windows.reload()
-    
+
     UITabBar.appearance().barStyle = barStyle
 
     UINavigationBar.appearance().barStyle = barStyle
@@ -69,16 +69,16 @@ extension Theme {
     UILabel.appearance().textColor = labelColor
 
     UIButton.appearance().setTitleColor(titleLabelColor, for: .normal)
-    
+
     UISwitch.appearance().tintColor = tint
-    
+
     UITextField.appearance().backgroundColor = backgroundColor
-    
+
    }
 }
 
 extension UIWindow {
-    
+
     /// Unload all views and add back.
     /// Useful for applying `UIAppearance` changes to existing views.
     func reload() {
@@ -88,9 +88,9 @@ extension UIWindow {
         }
     }
 }
- 
+
 extension Array where Element == UIWindow {
-    
+
     /// Unload all views for each `UIWindow` and add back.
     /// Useful for applying `UIAppearance` changes to existing views.
     func reload() {

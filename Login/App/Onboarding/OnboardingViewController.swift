@@ -14,19 +14,19 @@ import RxSwift
 /// by other controller, this controllers handles taking user to the appropriate
 /// screen based upon need (New user or existing user)
 class OnboardingViewController: BaseNavigationController {
-  
+
   // MARK: Properties
-  
+
   let viewModel: OnboardingViewModel
   let disposeBag = DisposeBag()
-  
+
   // Child View Controllers
   let welcomeViewController: WelcomeViewController
   let signInViewController: SignInViewController
   let signUpViewController: SignUpViewController
-  
+
   // MARK: Methods
-  
+
   /// Configures to handing onboarding with passed controllers to
   /// handle the different conditions of signing up or signing in a user
   /// - Parameters:
@@ -38,24 +38,24 @@ class OnboardingViewController: BaseNavigationController {
        welcomeViewController: WelcomeViewController,
        signInViewController: SignInViewController,
        signUpViewController: SignUpViewController) {
-    
+
     self.viewModel = viewModel
     self.welcomeViewController = welcomeViewController
     self.signInViewController = signInViewController
     self.signUpViewController = signUpViewController
-    
+
     super.init()
-    
+
     self.delegate = self
-    
+
   }
-  
+
   /// This actually displays the view display
   public override func viewDidLoad() {
-    
+
     super.viewDidLoad()
     subscribe(to: viewModel.view)
-    
+
   }
 
   /// Provides a means to respond to changes to onboard state
@@ -128,7 +128,7 @@ extension OnboardingViewController {
   /// - Parameter animated: Animation flag
   func hideNavigationBar(animated: Bool) {
     if animated {
-      transitionCoordinator?.animate(alongsideTransition: { context in
+      transitionCoordinator?.animate(alongsideTransition: { _ in
         self.setNavigationBarHidden(true, animated: animated)
       })
     } else {
@@ -153,13 +153,11 @@ extension OnboardingViewController: UINavigationControllerDelegate {
   ///   - navigationController: Reference to navigation controller
   ///   - viewController: Reference to view controller being shown
   ///   - animated: Animation flag
-  func navigationController(_ navigationController: UINavigationController,
-                                   willShow viewController: UIViewController,
-                                   animated: Bool) {
-    
+  func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+
     guard let viewToBeShown = onboardingView(associatedWith: viewController) else { return }
     hideOrShowNavigationBarIfNeeded(for: viewToBeShown, animated: animated)
-  
+
   }
 
   /// Handles display changes that happened when shown to user
@@ -167,15 +165,13 @@ extension OnboardingViewController: UINavigationControllerDelegate {
   ///   - navigationController: Reference to navigation controller
   ///   - viewController: Reference to view controller being shown
   ///   - animated: Animation flag
-  func navigationController(_ navigationController: UINavigationController,
-                                   didShow viewController: UIViewController,
-                                   animated: Bool) {
-    
+  func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+
     guard let shownView = onboardingView(associatedWith: viewController) else { return }
     viewModel.uiPresented(onboarding: shownView)
-    
+
   }
-  
+
   /// Uses the onboarding enum to determine which controller view  is to be displayed
   /// - Parameter viewController: View Controller currently be called
   func onboardingView(associatedWith viewController: UIViewController) -> OnboardingState? {
@@ -191,6 +187,5 @@ extension OnboardingViewController: UINavigationControllerDelegate {
       return nil
     }
   }
-  
-}
 
+}

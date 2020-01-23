@@ -14,11 +14,11 @@ import PromiseKit
 class KeychainUserSessionDataStore: UserSessionDataStore {
 
   // MARK: - Properties
-  
+
   let userSessionCoder: UserSessionCoding
 
   // MARK: - Methods
-  
+
   /// Configures to work with passed encoding system
   /// - Parameter userSessionCoder: Reference to encoding/decoding system
   init(userSessionCoder: UserSessionCoding) {
@@ -59,7 +59,7 @@ class KeychainUserSessionDataStore: UserSessionDataStore {
 }
 
 extension KeychainUserSessionDataStore {
-  
+
   func readUserSessionSync(seal: Resolver<UserSession?>) {
     do {
       let query = KeychainItemQuery()

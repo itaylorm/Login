@@ -10,5 +10,5 @@ import Foundation
 
 /// Handles appearance of sign in UI
 class SignInView: BaseView {
-  
+
 }

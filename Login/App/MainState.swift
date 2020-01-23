@@ -11,27 +11,27 @@ import Foundation
 /// Provides a means to determine which part of the
 /// application cycle the app is in
 enum MainState {
-  
+
   case launching
   case onboarding
   case signedIn(userSession: UserSession)
-  
+
 }
 
 /// Provides mean to compare enum values
 extension MainState: Equatable {
-  
-  static func ==(lhs: MainState, rhs: MainState) -> Bool {
-    
+
+  static func == (lhs: MainState, rhs: MainState) -> Bool {
+
     switch(lhs, rhs) {
-      case (.launching, .launching): return true
-      case (.onboarding, .onboarding) : return true
-      case let (.signedIn(l), .signedIn(r)): return l == r
-      case (.launching, _),
+    case (.launching, .launching): return true
+    case (.onboarding, .onboarding) : return true
+    case let (.signedIn(left), .signedIn(right)): return left == right
+    case (.launching, _),
          (.onboarding, _),
          (.signedIn, _):
           return false
     }
   }
-  
+
 }

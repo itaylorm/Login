@@ -13,11 +13,11 @@ import RxSwift
 /// Used to allow view models to be passed and have
 /// common functions
 class BaseViewModel {
-  
+
   var errorMessages: Observable<ErrorMessage> {
     return errorMessagesSubject.asObservable()
   }
-  
+
   let errorMessagesSubject = PublishSubject<ErrorMessage>()
-  
+
 }

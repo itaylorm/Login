@@ -10,23 +10,23 @@ import Foundation
 
 /// Handles display of sign in screen
 class SignInViewModel: BaseViewModel {
-  
+
   // MARK: Properties
-  
+
   let userSessionRepository: UserSessionRepository
   let signedInResponder: SignedInResponder
-  
+
   // MARK: Methods
-  
+
   /// Configures view model with responder to indicate signed in status and user session storage reference
   /// - Parameters:
   ///   - userSessionRepository: Reference to storage for user session
   ///   - signedInResponder: Reference to responder for signed in status
   init(userSessionRepository: UserSessionRepository, signedInResponder: SignedInResponder) {
-  
+
     self.userSessionRepository = userSessionRepository
     self.signedInResponder = signedInResponder
-    
+
   }
-  
+
 }

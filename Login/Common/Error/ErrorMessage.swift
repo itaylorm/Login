@@ -12,27 +12,27 @@ import Foundation
 public struct ErrorMessage: Error {
 
   // MARK: - Properties
-  
+
   // Associated id
-  let id: UUID
-  
+  let identifier: UUID
+
   // Top level message
   let title: String
-  
+
   // Main message
   let message: String
-  
+
 }
 
 /// Provides a means to compare different instances
 extension ErrorMessage: Equatable {
-  
+
   /// Compares two remote user sessions
   /// - Parameters:
   ///   - lhs: first item to compare
   ///   - rhs: second item to compare
-  public static func ==(lhs: ErrorMessage, rhs: ErrorMessage) -> Bool {
-    return lhs.id == rhs.id
+  public static func == (lhs: ErrorMessage, rhs: ErrorMessage) -> Bool {
+    return lhs.identifier == rhs.identifier
   }
 
 }

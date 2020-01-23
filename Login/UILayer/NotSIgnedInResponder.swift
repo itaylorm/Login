@@ -10,8 +10,8 @@ import Foundation
 
 /// Handles an unsuccessful sign 
 protocol NotSignedInResponder {
-  
+
   /// Indicates user is not signed in
   func notSignedIn()
-  
+
 }

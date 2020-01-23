@@ -11,8 +11,8 @@ import Foundation
 /// A type following this protocol exposes method(s)
 /// associated with signing in a user
 protocol SignInNavigator {
-  
+
   /// Takes user to the sign in view
-  func SignIn()
-  
+  func signIn()
+
 }

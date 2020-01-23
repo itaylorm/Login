@@ -10,9 +10,9 @@ import Foundation
 
 /// Handles successful sign in
 protocol SignedInResponder {
-  
+
   /// Indicates user is signed in along with current associated information
   /// - Parameter userSession: Logged in information
   func signedIn(to userSession: UserSession)
-  
+
 }
